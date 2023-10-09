@@ -1,0 +1,82 @@
+*{
+    margin:0; 
+    padding:0;
+    font-family: sans-serif;
+}
+
+/* website colors and styles**/
+.headings{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: grey;
+}
+
+nav{
+    display: flex;
+    width: 84%;
+    margin: auto;
+    padding: 20px 0; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: gold;
+    text-decoration: underline;
+}
+
+.intro{
+    margin-left: 3%;
+    margin-top: 15%;
+}
+
+.intro ul a {
+    color: #000;
+    display: block;
+    padding: 0 65px 0 0;
+    text-decoration: none;
+    width:100%;
+    text-align:left;
+}
+
+.intro h1{
+    margin-left: 300px;
+    text-align: left;
+    color: black;
+    font-size: 50px;
+}
+
+.intro p{
+    margin-left: 300px;
+    text-align: left; 
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    font-size: 2rem;
+    color: black;
+}
+
+.selfie{
+    border-radius: 50%;
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    display: flex;
+    bottom: 150px;
+    right: 150px;
+    float: right;
+}

@@ -1,83 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Testing Title</title>
-  <style>
-    /* website colors and styles**/
-    body {
-      background-color: black;
-    }
-
-    h1 {
-      color: white;
-    }
-
-    h2 {
-      color: white;
-    }
-
-    p {
-      color: white;
-      text-align: center;
-
-    }
-    pre {
-      color: white;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <!-- Creates the Heading Tabs for website -->
+  <div class="headings">
+    <nav>
+      <!-- Logo for home page -->
+      <img src="images/logo-website.png" class="logo">
 
-  <!--attempt at header
-  <main>
-    <header>
-      <a href="#"><b>My Projects</b></a>
-      <ul class="nav-container__links">
-        <li class="nav-container__link">
-          <a href="#about">About</a>
-        </li>
-    </header>
-  </main>
-  -->
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT ME</a></li>
+        <li><a href="#">PROJECTS</a></li>
+        <li><a href="#">COURSES</a></li>
 
-  
-  <!-- Creates my Name  -->
-  <h1 style="text-align:center; font-size: 60px;" title="Ya i've got skills">
-    John Haut
-  </h1>
+      </ul>
 
-  <!-- Creates my birthday-->
-  <h2 style="text-align: center"><small>
-      October 23, 2002
-    </small></h2>
+    </nav>
 
-  <!-- Creates my Picture-->
-  <style>
-    img {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-    }
-  </style>
-  <body>
-    <img src="Picture-website.jpg" alt="Personal Selfie"
-    width="500" height="333" />
-  </body>
-  
-  <h2 style="text-align: center;"><i>
-      Computer Science Major
-    </i></h2>
+    <!-- Introduces Myself / my Website -->
+    <div class="intro">
+      <h1>Hi I'm John Haut</h1>
 
-  <!-- Math Functions -->
-  <pre> <span class="inner-pre" style="font-size: 18px">
-      <b>Random Math Function: log<sub>10</sub>100 = 2</b> <br>
-      <b>Another Math Function: 10<sup>2</sup> = 100</b>
-    </span></pre>
-  <!-- Grad Year-->
-  <p><b>PITT 2026</b></p>
+      <p>This is my official Portfolio website
+        <br> I hope it looks Good!
+      </p>
+
+    </div>
+
+    <!-- Picture of Myself -->
+    <div class="images">
+      <img src="images/Picture-website.jpg" class="selfie" > 
+    </div>
+
+  </div>
 </body>
 
 </html>
+
