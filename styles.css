@@ -9,14 +9,14 @@
     flex-direction: column;
     justify-content: center;
     padding: 3rem;
+    color: white;
 }
 
 .section-container:nth-of-type(even) {
     background-color: gold;
+    color: black;
 }
-.end-container {
-    height: 100px;
-}
+
 /* website colors and styles**/
 .headings{
     display: flex;
@@ -65,7 +65,6 @@ nav ul li a:hover{
 }
 
 .intro ul a {
-    color: white;
     display: block;
     padding: 0 0 0 0;
     text-decoration: none;
@@ -74,8 +73,6 @@ nav ul li a:hover{
 
 .intro h1{
     padding: 70px 0;
-
-    color: white;
     font-size: 50px;
 }
 .name {
@@ -87,7 +84,6 @@ nav ul li a:hover{
     flex-direction: column;
     gap: 1.5rem;
     font-size: 2rem;
-    color: white;
 }
 
 .intro img {
@@ -100,10 +96,6 @@ nav ul li a:hover{
 }
 
 /** STEELERS SECTION */
-.steeler {
-    color: white;
-}
-
 .steeler h1 {
     padding: 100px 0;
     font-size: 56px;
@@ -151,9 +143,7 @@ nav ul li a:hover{
     float: left;
 }
 /** ENDING SECTION */ 
-.footer {
-    color: white;
-}
+
 .footer img {
     height: 100%;
     width: 100%;
