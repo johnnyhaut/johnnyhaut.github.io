@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5rem;
+    padding: 3rem;
 }
 .section-container:nth-of-type(even) {
     background-color: gold;
@@ -16,17 +16,17 @@
 
 /* website colors and styles**/
 .headings{
-    position: relative;
-    width: 100%;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: grey;
+    max-height: 185px;
 }
 
 nav{
     display: flex;
     width: 84%;
     margin: auto;
-    padding: 20px 0; 
     align-items: center;
     justify-content: space-between;
 }
@@ -50,48 +50,79 @@ nav ul li a:hover{
 }
 
 .intro{
-    /**--margin-left: 3%;
-    margin-top: 15%; */
-    text-align: left;
-    justify-content: left;
-    align-items: left;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .intro ul a {
     color: white;
     display: block;
-    padding: 0 65px 0 0;
+    padding: 0 0 0 0;
     text-decoration: none;
     width:100%;
-    text-align:left;
 }
 
 .intro h1{
-    margin-left: 300px;
-    text-align: left;
+    padding: 70px 0;
+
     color: white;
     font-size: 50px;
+}
+.name {
+    color: gold;
 }
 
 .intro p{
     margin-left: 0px;
-    text-align: left; 
     flex-direction: column;
     gap: 1.5rem;
-    justify-content: center;
     font-size: 2rem;
     color: white;
 }
 
-.selfie{
-    
-    border-radius: 50%;
-    position: absolute;
+.intro img {
+    max-width: 275px;
     width: 275px;
     height: 275px;
-    float: ri;
-    /**bottom: 300px;
-    right: 150px;*/
+    border-radius: 50%;
+    border: 5px solid gold;
+    float: right;
+}
+
+.about img {
+    max-width: 275px;
+    width: 275px;
+    height: 275px;
+    border: 5px solid black;
+    float: left;
+}
+
+
+.about {
+    display: flex;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    justify-content: space-between;
+    align-items: center;    
+}
+.about h1 {
+    text-align: left;
+    font-size: 56px;
+    margin-left: 10px;
+}
+
+.about h2 {
+    text-align: center;
+    margin-left: 10px;
 }
 
 .example {
