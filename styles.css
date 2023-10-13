@@ -10,10 +10,13 @@
     justify-content: center;
     padding: 3rem;
 }
+
 .section-container:nth-of-type(even) {
     background-color: gold;
 }
-
+.end-container {
+    height: 100px;
+}
 /* website colors and styles**/
 .headings{
     display: flex;
@@ -49,6 +52,7 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
+/** INTRODUCTION SECTION */
 .intro{
     width: 100%;
     height: 100%;
@@ -95,15 +99,29 @@ nav ul li a:hover{
     float: right;
 }
 
-.about img {
-    max-width: 275px;
-    width: 275px;
-    height: 275px;
-    border: 5px solid black;
+/** STEELERS SECTION */
+.steeler {
+    color: white;
+}
+
+.steeler h1 {
+    padding: 100px 0;
+    font-size: 56px;
+}
+.steeler img {
+    float: right;
+}
+
+/** CODING EXPERIENCE SECTION */ 
+.coder h1 {
+    font-size: 56px;
+}
+
+.coder img {
     float: left;
 }
 
-
+/** ABOUT ME SECTION */
 .about {
     display: flex;
     font-size: 18px;
@@ -125,6 +143,20 @@ nav ul li a:hover{
     margin-left: 10px;
 }
 
-.example {
+.about img {
+    max-width: 275px;
+    width: 275px;
+    height: 275px;
+    border: 5px solid black;
+    float: left;
+}
+/** ENDING SECTION */ 
+.footer {
     color: white;
+}
+.footer img {
+    height: 100%;
+    width: 100%;
+    /** height: 333px;
+    width: 789px; */
 }
