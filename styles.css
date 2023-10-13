@@ -75,7 +75,7 @@ nav ul li a:hover{
 
 .intro p{
     margin-left: 0px;
-    text-align: center; 
+    text-align: left; 
     flex-direction: column;
     gap: 1.5rem;
     justify-content: center;
@@ -84,11 +84,12 @@ nav ul li a:hover{
 }
 
 .selfie{
+    
     border-radius: 50%;
     position: absolute;
     width: 275px;
     height: 275px;
-    float: right;
+    float: ri;
     /**bottom: 300px;
     right: 150px;*/
 }
