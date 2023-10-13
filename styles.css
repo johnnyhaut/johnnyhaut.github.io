@@ -3,6 +3,16 @@
     padding:0;
     font-family: sans-serif;
 }
+.section-container {
+    background-color: black; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem;
+}
+.section-container:nth-of-type(even) {
+    background-color: gold;
+}
 
 /* website colors and styles**/
 .headings{
@@ -40,12 +50,15 @@ nav ul li a:hover{
 }
 
 .intro{
-    margin-left: 3%;
-    margin-top: 15%;
+    /**--margin-left: 3%;
+    margin-top: 15%; */
+    text-align: left;
+    justify-content: left;
+    align-items: left;
 }
 
 .intro ul a {
-    color: #000;
+    color: white;
     display: block;
     padding: 0 65px 0 0;
     text-decoration: none;
@@ -56,27 +69,30 @@ nav ul li a:hover{
 .intro h1{
     margin-left: 300px;
     text-align: left;
-    color: black;
+    color: white;
     font-size: 50px;
 }
 
 .intro p{
-    margin-left: 300px;
-    text-align: left; 
+    margin-left: 0px;
+    text-align: center; 
     flex-direction: column;
     gap: 1.5rem;
     justify-content: center;
     font-size: 2rem;
-    color: black;
+    color: white;
 }
 
 .selfie{
     border-radius: 50%;
     position: absolute;
-    width: 650px;
-    height: 650px;
-    display: flex;
-    bottom: 150px;
-    right: 150px;
+    width: 275px;
+    height: 275px;
     float: right;
+    /**bottom: 300px;
+    right: 150px;*/
+}
+
+.example {
+    color: white;
 }
