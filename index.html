@@ -3,26 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Personal Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 
 <body>
+
   <!-- Creates the Heading Tabs for website -->
-
-
   <div class="headings">
 
     <nav>
       <!-- Logo for home page -->
-      <img src="images/logo-website.png" class="logo">
+      <a href="index.html">
+        <img src="images/logo-website.png" class="logo">
+
+      </a>
 
       <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT ME</a></li>
-        <li><a href="#">PROJECTS</a></li>
-        <li><a href="#">COURSES</a></li>
+        <li><a href="#kachiga">ABOUT ME</a></li>
+        <li><a href="projects.html">PROJECTS</a></li>
+        <li><a href="#coding">EXPERIENCE</a></li>
+        <li><a href="reflection.html">REFLECTION</a></li>
 
       </ul>
 
@@ -31,15 +37,17 @@
 
   <!-- Introduces Myself / my Website -->
   <section id="kachow" class="section-container">
+
     <div class="intro">
       <!-- Picture of Myself -->
       <img src="images/Picture-website.jpg" class="selfie">
+      <div class="description">
+        <span class="home_name">Hi I'm <a class="name">John Haut</a></span>
+        <span class="portfolio-description">This is my official Portfolio website
+          <br> I hope it looks Good!
+        </span>
+      </div>
 
-      <h1>Hi I'm <a class="name">John Haut</a></h1>
-
-      <p>This is my official Portfolio website
-        <br> I hope it looks Good!
-      </p>
 
     </div>
 
@@ -48,17 +56,20 @@
   <!-- Gives a background of my College experience-->
   <section id="kachiga" class="section-container">
     <div class="about">
-      <br><br>
-      <img src="images/cathy.png">
-      <h1>
-        Here is a little about me...
-      </h1>
-      <h2>
-        I'm a Junior at Pitt and I'm working on getting my Bachelors Degree
-        in Computer Science. So far I have really enjoyed my courses and I can't
-        wait to apply my knowledge in building games and websites in the future.
-        <br> GO PANTHERS!
-      </h2>
+      <div class="about-container">
+        <img src="images/cathy.png">
+      </div>
+
+      <div class="about-container">
+        <span class="about-title">Here is a little about me...    </span>
+        <br>
+        <span class="about-pitt">
+          I'm a Junior at Pitt and I'm working on getting my Bachelors Degree
+          in <b>Computer Science</b>. So far I have really enjoyed my courses and I can't
+          wait to apply my knowledge in building games and websites in the future.
+          <br><br> GO PANTHERS!
+        </span>
+      </div>
 
     </div>
   </section>
@@ -68,34 +79,120 @@
     <div class="steeler">
       <img src="images/steelers.png">
 
-        <h1> I'm a Steelers Fanatic </h1>
-        <p>
-          I love the Pittsburgh Steelers! They are my favorite football team and 
-          I watch them play every week. This year I'm trying to go to every 
-          home game and it has been a ton of fun. 
-        </p>
+      <span class="steeler-title"> I'm a Steelers Fanatic </span>
+      <span class="steeler-body">
+        I love the Pittsburgh Steelers! They are my favorite football team and
+        I watch them play every week. This year I'm trying to go to every
+        home game and it has been a ton of fun.
+      </span>
+      
     </div>
   </section>
 
   <!-- Provides my Coding Experience-->
   <section id="coding" class="section-container">
-    <div class="coder">
-      <img src="images/coder.jpg">
-      <h1> I have experience in multiple coding languages</h1>
-      <p>
-        I have coded in Python, Java, HTML, CSS, along with mips Assembly
-        <br> These coding skills have allowed for me to grow and learn more 
-        <br> about the world that a software engineer is experienced with
-      </p>
+
+    <div class="dewrapper">
+      <div class="coder">
+        <img src="images/coder.jpg">
+
+      </div>
+
+      <div class="skills">
+        <h2> Skills </h2>
+
+        <p>
+        I have experience in multiple coding languages, languages such as Python, 
+        Java, HTML, CSS, along with mips Assembly. These coding skills have allowed
+        for me to grow and gain hands on experience with varius languages. 
+        </p>
+      </div>
+
+      <div class="experience">
+        <h1>
+          Work Experience
+        </h1>
+        <h2>
+          Position Title 1
+        </h2>
+        <p>
+          Position description
+        </p>
+        <h2>
+          Position Title 2
+        </h2>
+        <p>
+          Position Description
+        </p>
+      </div>
     </div>
+
   </section>
 
-  <!-- gives a send off, end of website -->
-  <section id="finale" class="section-container">
-    <div class="footer">
-      <img src="images/ending.jpg" alt="" class="help">
+  <!-- THIS IS FOOTER CODE -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>College Career</h4>
+          <ul>
+            <li><a href="courses.html">Classes</a></li>
+            <li><a href="https://pittcs.wiki/academics/scheduling">Upcoming Courses</a></li>
+            <li><a href="#">fill in the blank</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Favorite Teams</h4>
+          <ul>
+            <li><a href="https://www.steelers.com/">
+              Pittsburgh Steelers
+            </a></li>
+            <li><a href="https://pittsburghpanthers.com/sports/mens-basketball">
+              Pitt Men's Basketball
+            </a></li>
+            <li><a href="https://pittsburghpanthers.com/sports/womens-volleyball">
+              Pitt Women's Volleyball
+            </a></li>
+            <li><a href="https://pittsburghpanthers.com/sports/football">
+              Pitt Men's Football
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Helpful Resources</h4>
+          <ul>
+            <li><a href="https://www.theodinproject.com/dashboard">
+              The Odin Project
+            </a></li>
+            <li><a href="https://www.w3schools.com/html/default.asp">
+              W3 Schools
+            </a></li>
+            <li><a href="https://www.youtube.com/">
+              Youtube
+            </a></li>
+            <li><a href="#">
+              Fill in the blank
+            </a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </section>
+  </footer>
+  <!-- THIS IS THE END OF FOOTER CODE-->
+  <!-- gives a send off, end of website -->
 </body>
 
 </html>
