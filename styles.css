@@ -1,15 +1,18 @@
 /* website colors and styles*/
 *{
-    margin:0; 
-    padding:0;
     box-sizing: border-box;
     font-family: sans-serif;
     scroll-behavior: smooth !important;
+    overscroll-behavior: none;
+    padding: 0;
 }
 
 body{
+    height: 100vh;
+    overflow-x: hidden;
     margin: 0;
-    padding: 0;
+    display: inline-block;
+    box-sizing: border-box;
     width: 100vw;
 	line-height: 1.5;
 	font-family: 'Poppins', sans-serif;
@@ -72,7 +75,7 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
-/** INTRODUCTION, SELFIE SECTION */
+/** INTRODUCTION SECTION */
 .intro{
     padding: 2rem;
     text-align: center;
@@ -139,6 +142,9 @@ nav ul li a:hover{
     text-align: left;
     font-size: 1.8rem;
 }
+.about-pitt B {
+    font-size: 1.8rem;
+}
 
 .about img {
     justify-content: center;
@@ -148,7 +154,7 @@ nav ul li a:hover{
     float: left;
 }
 
-/** STEELERS SECTION */
+/** STEELERS/ Pittsburgh SECTION */
 .steeler {
     position: relative;
     display: flex;
@@ -190,34 +196,37 @@ nav ul li a:hover{
 
 }
 .coder h1 {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 56px;
     text-align: right;
 }
 
 .coder h2 {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 30px; 
     text-align: left;
 }
 
 .coder p {
-    text-align: conter;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 30px;
 }
 
 .coder img {
-    padding: 1rem;
     float: left;
     width: 100%;
     height: 100%;
 }
-.experience {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-}
 
-.experience p {
-    text-align: center;
+.experience {
+    margin: 0;
+    width: 40%;
+    flex-direction: column;
+    text-align: left;
+
 }
 
 /** FOOTER SECTION */ 
@@ -232,7 +241,7 @@ ul{
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
-    right: 0px;
+    height: auto;
 }
 .footer-col{
    width: 25%;
@@ -269,7 +278,7 @@ ul{
 	transition: all 0.3s ease;
 }
 .footer-col ul li a:hover{
-	color: #ffffff;
+	color: gold;
 	padding-left: 8px;
 }
 .footer-col .social-links a{
@@ -290,15 +299,68 @@ ul{
 }
 
 /** THIS IS PROJECTS.HTML */
-
 #project {
     color: black;
     background-color: gold;
 }
 
-#reflecting {
-    background-color: gold;
+#project a {
+    color: black;
+    font-size: 40px;
+    text-decoration: none;
 }
+
+#project a:hover {
+    color: red;
+}
+
+.proj-title:hover {
+    text-decoration: underline;
+}
+
+/** THIS IS COURSES.HTML */
+#course {
+    background-color: gold;
+    color: black;
+}
+
+/** THIS IS REFLECTION.HTML*/ 
+#reflecting {
+    z-index: 0;
+    position: relative;
+    background-color: gold;
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+
+}
+
+#rcorners1 {
+    color: gold;
+    z-index: 1;
+    position: relative;
+    border-radius: 25px;
+    background: #24262b;
+    width: 90%;
+    text-align: center;
+  }
+  .reflection {
+    padding: 3rem;
+    height: 100%;
+  }
+  .reflection p {
+    font-size: 25px;
+  }
+
+ #de-box {
+    overflow: hidden;
+    background-color: gold; 
+    color: black; 
+    border-radius: 25%;
+    font-size: 45px;
+}
+
 /*
 @media (max-width: 960px){
     body,
