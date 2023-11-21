@@ -328,7 +328,7 @@ ul{
 #reflecting {
     z-index: 0;
     position: relative;
-    background-color: gold;
+    background-color: #24262b;
     padding-bottom: 10%;
     padding-left: 10%;
     padding-top: 8%;
@@ -337,11 +337,11 @@ ul{
 }
 
 #rcorners1 {
-    color: gold;
+    color: #24262b;
     z-index: 1;
     position: relative;
     border-radius: 25px;
-    background: #24262b;
+    background: gold;
     width: 90%;
     text-align: center;
   }
@@ -353,14 +353,45 @@ ul{
     font-size: 25px;
   }
 
- #de-box {
-    overflow: hidden;
-    background-color: gold; 
-    color: black; 
-    border-radius: 25%;
-    font-size: 45px;
+  #reflecting a {
+    color: grey;
+    font-weight: 900;
+
+  }
+
+  #reflecting a:hover {
+    color: red;
 }
 
+ #de-box {
+    overflow: hidden;
+    background-color: #24262b;; 
+    color: gold; 
+    border-radius: 35%;
+    font-size: 45px;
+    padding: 1rem;
+}
+
+.courses {
+    padding: 2.5rem;
+}
+
+.courses h1 {
+    text-align: left;
+    padding-left: 18rem;
+}
+
+#da-box {
+    margin-bottom: 2.5rem;
+    float: right;
+    text-align: right;
+    overflow: hidden;
+    background-color: #24262b;; 
+    color: gold; 
+    border-radius: 35%;
+    font-size: 45px;
+    padding: 1rem;
+}
 /*
 @media (max-width: 960px){
     body,
