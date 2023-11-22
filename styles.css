@@ -340,11 +340,19 @@ ul{
 /** THIS IS PROJECTS.HTML */
 #project {
     color: black;
+    padding-left: 10rem;
     background-color: gold;
+}
+#project p {
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 20%;
 }
 
 #project a {
-    color: black;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: white;
     font-size: 40px;
     text-decoration: none;
 }
@@ -353,8 +361,18 @@ ul{
     color: red;
 }
 
+.project-heading {
+    font-size: 50px;
+}
 .proj-title:hover {
     text-decoration: underline;
+}
+#proj-box {
+    overflow: hidden;
+    background-color: #24262b;; 
+    border-radius: 50%;
+    font-size: 45px;
+    padding: 2rem;
 }
 
 /** THIS IS COURSES.HTML */
