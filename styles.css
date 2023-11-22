@@ -96,13 +96,26 @@ nav ul li a:hover{
     flex-direction: column;
     font-size: 2rem;
     padding-left: 15% ; 
+    padding-right: 5rem;
 }
+
+.description a {
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 40px;
+    color: #ffd500;
+}
+.description a:hover {
+    color: red;
+}
+
 .home_name{
     padding: 25px 0;
     font-size: 50px;
 }
 .name {
     color: gold;
+    font-style: normal;
 }
 
 .intro img {
@@ -112,7 +125,7 @@ nav ul li a:hover{
     border: 5px solid gold;
     margin-right: 8rem;
     float: right;
-    justify-content: center;
+    margin-top: 2.5rem;
 }
 
 /* ABOUT SECTION */
@@ -159,25 +172,29 @@ nav ul li a:hover{
     position: relative;
     display: flex;
     flex-direction: row;
-
+    padding: 2rem;
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
+.steeler img {
+    width: 400px;
+    height: 400px; 
+    float: right;
+}
+
 .steeler-title {
     margin-top: 2rem;
-    font-size: 36px;
+    font-size: 60px;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .steeler-body {
-    font-size: 20px;
-}
-
-.steeler img {
-    width: 300px;
-    height: 300px; 
-    float: right;
+    font-size: 30px;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 /** CODING EXPERIENCE SECTION */ 
@@ -191,42 +208,64 @@ nav ul li a:hover{
     display: flex;
     flex-direction: column;
 }
-.skills {
-    width: 35%;
-
-}
-.coder h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 56px;
-    text-align: right;
-}
-
-.coder h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 30px; 
-    text-align: left;
-}
-
-.coder p {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 30px;
-}
-
 .coder img {
     float: left;
     width: 100%;
     height: 100%;
 }
 
+.skills {
+    width: 35%;
+
+}
+.skills h2 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+.skills p {
+    font-size: 25px;
+}
+
+.coder h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.coder h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.coder p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .experience {
-    margin: 0;
     width: 40%;
     flex-direction: column;
     text-align: left;
+}
+.experience h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
+    font-size: 40px;
+}
+.experience h2 {
+    font-size: 30px;
+}
+.experience h3 {
+    font-size: 20px;
+    margin-top: 0;
+}
 
+.experience p {
+    font-size: 18px;
 }
 
 /** FOOTER SECTION */ 
@@ -324,6 +363,42 @@ ul{
     color: black;
 }
 
+
+.course-title {
+    font-size: 35px;
+    padding-top: 2rem;
+    font-weight: bold;
+    color: blue;
+}   
+.courses {
+    padding: 2.5rem;
+}
+
+.courses h1 {
+    text-align: left;
+    padding-left: 18rem;
+}
+
+#da-box {
+    margin-bottom: 2.5rem;
+    float: right;
+    text-align: right;
+    overflow: hidden;
+    background-color: #24262b;; 
+    color: red; 
+    border-radius: 50%;
+    font-size: 45px;
+    padding: 1rem;
+}
+#di-box {
+    overflow: hidden;
+    background-color: #24262b;; 
+    color: red; 
+    border-radius: 35%;
+    font-size: 45px;
+    padding: 1rem;
+}
+
 /** THIS IS REFLECTION.HTML*/ 
 #reflecting {
     z-index: 0;
@@ -351,10 +426,11 @@ ul{
   }
   .reflection p {
     font-size: 25px;
+    text-align: center;
   }
 
   #reflecting a {
-    color: grey;
+    color: blue;
     font-weight: 900;
 
   }
@@ -372,26 +448,6 @@ ul{
     padding: 1rem;
 }
 
-.courses {
-    padding: 2.5rem;
-}
-
-.courses h1 {
-    text-align: left;
-    padding-left: 18rem;
-}
-
-#da-box {
-    margin-bottom: 2.5rem;
-    float: right;
-    text-align: right;
-    overflow: hidden;
-    background-color: #24262b;; 
-    color: gold; 
-    border-radius: 35%;
-    font-size: 45px;
-    padding: 1rem;
-}
 /*
 @media (max-width: 960px){
     body,
