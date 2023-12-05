@@ -339,30 +339,41 @@ ul{
 
 /** THIS IS PROJECTS.HTML */
 #project {
-    color: black;
     padding-left: 10rem;
-    background-color: gold;
+    background-color: #24262b;
 }
+#rcorners2 {
+    color: #24262b;
+    z-index: 1;
+    position: relative;
+    border-radius: 25px;
+    background: gold;
+    width: 90%;
+    text-align: left;
+    padding-left: 5rem;
+  }
+
 #project p {
     font-size: 25px;
-    margin-left: 10%;
-    margin-right: 20%;
+    margin-right: 3rem;
+    margin-left: 3rem;
 }
 
 #project a {
     margin-top: 2rem;
     margin-bottom: 2rem;
-    color: white;
+    color: red;
     font-size: 40px;
     text-decoration: none;
 }
 
 #project a:hover {
-    color: red;
+    color: gold;
 }
 
 .project-heading {
     font-size: 50px;
+    text-align: center;
 }
 .proj-title:hover {
     text-decoration: underline;
