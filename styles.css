@@ -123,6 +123,7 @@ nav ul li a:hover{
     height: 345px;
     border-radius: 50%;
     border: 5px solid gold;
+    background-color: white;
     margin-right: 8rem;
     float: right;
     margin-top: 2.5rem;
