@@ -281,6 +281,7 @@ ul{
 	background-color: #24262b;
     padding: 70px 0;
     height: auto;
+    padding-left: 110px;
 }
 .footer-col{
    width: 25%;
@@ -357,11 +358,12 @@ ul{
     font-size: 25px;
     margin-right: 3rem;
     margin-left: 3rem;
+    padding-bottom: 2rem;
 }
 
 #project a {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
     color: red;
     font-size: 40px;
     text-decoration: none;
@@ -373,6 +375,7 @@ ul{
 
 .project-heading {
     font-size: 50px;
+    text-decoration: underline;
     text-align: center;
 }
 .proj-title:hover {
