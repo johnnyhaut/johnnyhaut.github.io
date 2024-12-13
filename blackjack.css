@@ -2,9 +2,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     box-sizing: border-box;
+    
     margin: 0;
     padding: 0;
     display: flex;
+    width: 100vw;
+    height: 100vh;
 }
  
 #hit {
@@ -151,12 +154,20 @@ body {
 
 table {
     border-collapse: collapse;
-
+    height: 100%;
+    width: 100%;
 }
 
 .basic-strategy {
+    flex: 1;
+    background-color: #e0e0e0;
+    padding: 1rem;
+    min-height: 100vh;
     width:33vw;
-    height: 100vh;
+}
+.main {
+    display: flex;
+    margin-top: 10rem; /* To account for the fixed header height */
 }
 
 td, th {
@@ -181,16 +192,20 @@ td, th {
 
 /* NAV BAR */
 .headings{
-    position: relative;
-    display: flex;
+    position: fixed;
     align-items: center;
     justify-content: space-between;
     background: #24262b;
     max-height: 185px;
     box-sizing: border-box;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    padding-bottom: 10rem;
 }
 
 nav{
+    position: fixed;
     gap: 5rem;
     display: flex;
     margin: auto;
@@ -214,6 +229,13 @@ nav ul li a{
 nav ul li a:hover{
     color: gold;
     text-decoration: underline;
+}
+
+.restOfScreen {
+    background-color: blue;
+    flex: 1;
+    padding: 1rem;
+    min-height: 100vh; /* Ensure it stretches vertically */
 }
 /* #background {
     width: 100vw;
