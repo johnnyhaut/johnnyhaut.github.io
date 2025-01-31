@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BlackJack</title>
         <link rel="stylesheet" href="blackjack.css">
+        <script src="blackjack.js"></script>
     </head>
 
     <body>
@@ -24,408 +25,481 @@
       
         </nav></div>
 
-        <main class="main">
-            <div class="restOfScreen">
-                <p>hello</p>
+        <!-- The main menu for the game: shows settings and start-->
+        <div class="main-menu">
+            <div id="main-menu">
+                <h1>Black Jack</h1>
+
+                <div class="menu-buttons">
+                    <button id="start">Start</button>
+                    <button id="settings">Settings</button>
+                </div>
+
+                <div id="settings-model">
+
+                    <div class="settings-menu">
+
+                        <div class="closer-box">
+                            <button id="closer">X</button>
+                        </div>
+
+                        <h1>The Settings</h1>
+                        <h2>Number of Decks</h2>
+                        <h2>Number of Hands Played</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="running-count">
+            <button id="new-game">Menu</button>
+
+            <h1>Record</h2>
+            <h3>Wins: <span id="dubs"><span></h3>
+            <h3>Losses: <span id="els"></span></h3>
+            <h3>Pushes: <span id="ties"></span></h3>
+
+
+            <h1>COUNT</h1>
+            <h2>Running Count: <span id="theCount">0</span></h2>
+            <h2>Manual Count: <span id="ourCount">0</span></h2>
+            <div class="playerCount">
+                <button id = "deCount">DecreaseCount</button>
+                <button id = "inCount">IncreaseCount</button>
             </div>
 
-            <div class="basic-strategy">
-                <table>
-                    <!--Dealers Upcard-->
-                    <tr>
-                        <th id="borderBlocks"></th>
-                        <th id="borderBlocks">2</th>
-                        <th id="borderBlocks">3</th>
-                        <th id="borderBlocks">4</th>
-                        <th id="borderBlocks">5</th>
-                        <th id="borderBlocks">6</th>
-                        <th id="borderBlocks">7</th>
-                        <th id="borderBlocks">8</th>
-                        <th id="borderBlocks">9</th>
-                        <th id="borderBlocks">10</th>
-                        <th id="borderBlocks">A</th>
-                    </tr>
-                    <!--Player has sum >= 17-->
-                    <tr>
-                        <th id="borderBlocks">17+</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                    </tr>
-                    <!--Player has sum = 16-->
-                    <tr>
-                        <th id="borderBlocks">16</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 15-->
-                    <tr>
-                        <th id="borderBlocks">15</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 14-->
-                    <tr>
-                        <th id="borderBlocks">14</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum =13-->
-                    <tr>
-                        <th id="borderBlocks">13</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 12-->
-                    <tr>
-                        <th id="borderBlocks">12</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 11-->
-                    <tr>
-                        <th id="borderBlocks">11</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 10-->
-                    <tr>
-                        <th id="borderBlocks">10</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has sum = 9-->
-                    <tr>
-                        <th id="borderBlocks">9</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--player has sum b/t 5 & 8-->
-                    <tr>
-                        <th id="borderBlocks">5-8</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--player has Soft 19 through 21 -->
-                    <tr>
-                        <th id="borderBlocks">A, 8-10</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                    </tr>
-                    <!--Soft Total-->
-                    <tr>
-                        <th id="borderBlocks">Soft Total</th>
-                        <th id="borderBlocks">2</th>
-                        <th id="borderBlocks">3</th>
-                        <th id="borderBlocks">4</th>
-                        <th id="borderBlocks">5</th>
-                        <th id="borderBlocks">6</th>
-                        <th id="borderBlocks">7</th>
-                        <th id="borderBlocks">8</th>
-                        <th id="borderBlocks">9</th>
-                        <th id="borderBlocks">10</th>
-                        <th id="borderBlocks">A</th>
-                    </tr>
-                    <!--Player has soft 18-->
-                    <tr>
-                        <th id="borderBlocks">A, 7</th>
-                        <th id="stay">S</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has soft 17-->
-                    <tr>
-                        <th id="borderBlocks">A, 6</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has soft 16-->
-                    <tr>
-                        <th id="borderBlocks">A, 5</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has soft 15-->
-                    <tr>
-                        <th id="borderBlocks">A, 4</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has soft 14-->
-                    <tr>
-                        <th id="borderBlocks">A, 3</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has soft 13-->
-                    <tr>
-                        <th id="borderBlocks">A, 2</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has double Aces or Eights-->
-                    <tr>
-                        <th id="borderBlocks">A,A OR 8,8</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                    </tr>
-                    <!--Player has pair of 10s-->
-                    <tr>
-                        <th id="borderBlocks">10,10</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                    </tr>
-                    <!--Player has pair of 9s-->
-                    <tr>
-                        <th id="borderBlocks">9,9</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="stay">S</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="stay">S</th>
-                        <th id="stay">S</th>
-                    </tr>
-                    <!--Player has pair of 7s-->
-                    <tr>
-                        <th id="borderBlocks">7,7</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has pair of 6s-->
-                    <tr>
-                        <th id="borderBlocks">6,6</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has pair of 5s-->
-                    <tr>
-                        <th id="borderBlocks">5,5</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="double">D</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has pair of 4s-->
-                    <tr>
-                        <th id="borderBlocks">4,4</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has pair of 3s-->
-                    <tr>
-                        <th id="borderBlocks">3,3</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                    <!--Player has pair of 2s-->
-                    <tr>
-                        <th id="borderBlocks">2,2</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="split">SP</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                        <th id="hit">H</th>
-                    </tr>
-                </table>
-        
+            <h3>Card less than 7 (+1)</h3>
+            <h3>Card is a 7, 8, OR 9 (0)</h3>
+            <h3>Card is a 10 OR A (-1)</h3>
+
+            <!--<h1>Last Cards</h1> -->
+
+
+        </div>
+
+        <div class="the-game">
+            <h2 id="rem-cards">Remaining Cards in Deck: <span id="remaining"></span></h2>
+
+            <br><br><br>
+
+            <!--Used to show the dealers cards-->
+            <h2>Dealer: <span id="deal-sum"></span></h2>
+            <div id="dealer-cards">
+                <img id="hidden" src="./cards/BACK.png" alt="">
             </div>
-        </main>
+
+            <!--Used to show the players cards-->
+            <h2>Your Cards: <span id="your-sum"></span></h2>
+            <div id="your-cards">
+
+            </div>
+
+            <br>
+            <div class="buttons">
+                <button id="hitbut">Hit</button>
+                <button id="staybut">Stay</button>
+                <button id="next-hand">Next Hand</button>
+            </div>
+
+            <p id="results"></p>
+        </div>
+
+        <div class="basic-strategy">
+            <table>
+                <!--Dealers Upcard-->
+                <tr>
+                    <th id="borderBlocks"></th>
+                    <th id="borderBlocks">2</th>
+                    <th id="borderBlocks">3</th>
+                    <th id="borderBlocks">4</th>
+                    <th id="borderBlocks">5</th>
+                    <th id="borderBlocks">6</th>
+                    <th id="borderBlocks">7</th>
+                    <th id="borderBlocks">8</th>
+                    <th id="borderBlocks">9</th>
+                    <th id="borderBlocks">10</th>
+                    <th id="borderBlocks">A</th>
+                </tr>
+                <!--Player has sum >= 17-->
+                <tr>
+                    <th id="borderBlocks">17+</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                </tr>
+                <!--Player has sum = 16-->
+                <tr>
+                    <th id="borderBlocks">16</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 15-->
+                <tr>
+                    <th id="borderBlocks">15</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 14-->
+                <tr>
+                    <th id="borderBlocks">14</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum =13-->
+                <tr>
+                    <th id="borderBlocks">13</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 12-->
+                <tr>
+                    <th id="borderBlocks">12</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 11-->
+                <tr>
+                    <th id="borderBlocks">11</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 10-->
+                <tr>
+                    <th id="borderBlocks">10</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has sum = 9-->
+                <tr>
+                    <th id="borderBlocks">9</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--player has sum b/t 5 & 8-->
+                <tr>
+                    <th id="borderBlocks">5-8</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--player has Soft 19 through 21 -->
+                <tr>
+                    <th id="borderBlocks">A, 8-10</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                </tr>
+                <!--Soft Total-->
+                <tr>
+                    <th id="borderBlocks">Soft Total</th>
+                    <th id="borderBlocks">2</th>
+                    <th id="borderBlocks">3</th>
+                    <th id="borderBlocks">4</th>
+                    <th id="borderBlocks">5</th>
+                    <th id="borderBlocks">6</th>
+                    <th id="borderBlocks">7</th>
+                    <th id="borderBlocks">8</th>
+                    <th id="borderBlocks">9</th>
+                    <th id="borderBlocks">10</th>
+                    <th id="borderBlocks">A</th>
+                </tr>
+                <!--Player has soft 18-->
+                <tr>
+                    <th id="borderBlocks">A, 7</th>
+                    <th id="stay">S</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has soft 17-->
+                <tr>
+                    <th id="borderBlocks">A, 6</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has soft 16-->
+                <tr>
+                    <th id="borderBlocks">A, 5</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has soft 15-->
+                <tr>
+                    <th id="borderBlocks">A, 4</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has soft 14-->
+                <tr>
+                    <th id="borderBlocks">A, 3</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has soft 13-->
+                <tr>
+                    <th id="borderBlocks">A, 2</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has double Aces or Eights-->
+                <tr>
+                    <th id="borderBlocks">A,A OR 8,8</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                </tr>
+                <!--Player has pair of 10s-->
+                <tr>
+                    <th id="borderBlocks">10,10</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                </tr>
+                <!--Player has pair of 9s-->
+                <tr>
+                    <th id="borderBlocks">9,9</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="stay">S</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="stay">S</th>
+                    <th id="stay">S</th>
+                </tr>
+                <!--Player has pair of 7s-->
+                <tr>
+                    <th id="borderBlocks">7,7</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has pair of 6s-->
+                <tr>
+                    <th id="borderBlocks">6,6</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has pair of 5s-->
+                <tr>
+                    <th id="borderBlocks">5,5</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="double">D</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has pair of 4s-->
+                <tr>
+                    <th id="borderBlocks">4,4</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has pair of 3s-->
+                <tr>
+                    <th id="borderBlocks">3,3</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+                <!--Player has pair of 2s-->
+                <tr>
+                    <th id="borderBlocks">2,2</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="split">SP</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                    <th id="hit">H</th>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>

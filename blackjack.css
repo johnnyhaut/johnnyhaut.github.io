@@ -2,12 +2,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    padding-top: 12rem;
+    overscroll-behavior: none;
 }
  
 #hit {
@@ -57,6 +56,7 @@ body {
     width: 125px; 
     margin: 1px;
 }
+
 .buttons {
     white-space: nowrap;
 }
@@ -131,7 +131,7 @@ body {
 }
 
 #settings-model {
-    border: 2px solid red;
+    border: 2px solid black;
     display:none;
 
 }
@@ -140,7 +140,7 @@ body {
 }
 
 .settings-menu {
-    background-color: red;
+    background-color: grey;
     padding: 1rem;
     padding-top: 2px;
 }
@@ -154,20 +154,12 @@ body {
 
 table {
     border-collapse: collapse;
-    height: 100%;
-    width: 100%;
+
 }
 
 .basic-strategy {
-    flex: 1;
-    background-color: #e0e0e0;
-    padding: 1rem;
-    min-height: 100vh;
     width:33vw;
-}
-.main {
-    display: flex;
-    margin-top: 10rem; /* To account for the fixed header height */
+    height: 100vh;
 }
 
 td, th {
@@ -180,7 +172,8 @@ td, th {
     font-size: 2.5rem;
 }
 .running-count h2 {
-    font-size: 4rem;
+    background-color: yellow;
+    font-size: 1rem;
 }
 .running-count h3 {
     font-size: 1rem;
@@ -189,10 +182,17 @@ td, th {
 .running-count {
     text-align: center;
 }
+.playerCount {
+    display:flex;
+}
+.playerCount button {
+    margin: .5rem;
+    height: 3rem;
+}
 
 /* NAV BAR */
 .headings{
-    position: fixed;
+    position: absolute;
     align-items: center;
     justify-content: space-between;
     background: #24262b;
@@ -202,10 +202,11 @@ td, th {
     top: 0;
     left: 0;
     padding-bottom: 10rem;
+    z-index: 10;
 }
 
 nav{
-    position: fixed;
+    position: absolute;
     gap: 5rem;
     display: flex;
     margin: auto;
@@ -231,12 +232,6 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
-.restOfScreen {
-    background-color: blue;
-    flex: 1;
-    padding: 1rem;
-    min-height: 100vh; /* Ensure it stretches vertically */
-}
 /* #background {
     width: 100vw;
     height: 100vh;
