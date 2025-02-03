@@ -13,7 +13,7 @@ var dealerAceCount =0;
 var hidden; 
 var hiddenVal; 
 //number of decks in the shoe
-var numOfDecks =1;
+var numOfDecks =4;
 var playerCount = 0; 
 var runningCount = 0; 
 
