@@ -1,0 +1,140 @@
+/* website colors and styles*/
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overscroll-behavior-x: none;
+}
+
+/* ROW AND COLUMN STYLES */
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.secColumn {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+    height: 1000px;
+}
+
+#firstColumn {
+    width: 16%;
+}
+#main-count {
+    background-color: black;
+}
+#main-count:hover {
+    background-color: white; 
+}
+
+#secondColumn {
+    width: 50.667%;
+    text-align: center;
+}
+
+#thirdColumn {
+    width: 33.333%;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    height: 4rem; 
+    padding-left: 10px;
+    /* background-color: rgb(86, 164, 31); */
+}
+#bottomRow {
+    background-color:rgb(86, 164, 31);
+    padding-left: 10rem;
+    border-top:3px solid greenyellow;
+    height: 400px;
+}
+
+/* MIDDLE COLUMN STYLES: The-Game*/
+.the-game {
+    display: none; 
+}
+.the-game h2 {
+    text-align: center;
+}
+
+#dealer-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+#your-cards img {
+    height: 175px; 
+    width: 125px; 
+    margin: 1px;
+}
+
+/* THE BLACKJACK BUTTONS ON THE SCREEN */
+#new-menu { /*MENU BUTTON */ 
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
+}
+
+
+#next-hand { /*NEXT HAND BUTTON*/ 
+    width: 110px;
+    height: 50px;
+    font-size: 20px;
+}
+#placeBet { 
+    width: 125px; 
+    height: 50px;
+    font-size: 20px;
+    align-items: center;
+}
+#incBet, #decBet, #staybut, #hitbut {
+    width: 100px;
+    height: 50px; 
+    font-size: 20px;
+    margin: .5rem;
+}
+
+/* .buttons {
+    white-space: nowrap;
+} */
+
+/* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 3px;
+}
+
+#hit {
+    background-color: yellow;
+}
+#stay {
+    background-color: lightgreen;
+}
+#double {
+    background-color: red;
+}
+
+#split {
+    background-color: lightblue;
+}
+
+#borderBlocks {
+    background-color: grey;
+}

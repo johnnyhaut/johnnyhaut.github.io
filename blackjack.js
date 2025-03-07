@@ -8,26 +8,35 @@ var playerSum =0;
 var dealerSum =0;
 var playerAceCount =0; 
 var dealerAceCount =0; 
+var firstRound = true; 
 
 //keeps track of the dealers face down card 
 var hidden; 
 var hiddenVal; 
+
 //number of decks in the shoe
-var numOfDecks =4;
+var numOfDecks;
 var playerCount = 0; 
 var runningCount = 0; 
 
 //holds the cards in the shoe => need to adjust to be SHOE
 var shoe; 
+var newDeck; 
 
 //the number of cards still in the shoe 
-var remaining = (numOfDecks * 52); 
+var remaining; 
 
 //when the user chooses to stay 
 var stayButtonPressed = false; 
 
 //allows the player to hit while playerSum <= 21 
 var canHit = true; 
+
+
+//accounts for how much money the player has and the current bet 
+var bankroll; 
+var dBet = 100; 
+var curBet = dBet; 
 
 //use this to make the settings popup disappear 
 // document.getElementById(id).style.property = new style; 
@@ -36,66 +45,138 @@ var canHit = true;
 
 //upon starting the website 
 window.onload = function() {
-
-    //creates a deck of 52 cards, shuffle it, wait to start 
-    buildDeck(numOfDecks); 
-    shuffleDeck(); 
     
-    //start up the game and hide main menu 
-    document.getElementById("start").addEventListener("click",leaveMenu);
+    //pull the deckNum and playerBankroll, build then shuffle deck
+    prepareForGame(); 
+    
+    //wait for user to place their bet 
+    document.getElementById("incBet").addEventListener("click", incBet);
+    document.getElementById("decBet").addEventListener("click", decBet);
+    document.getElementById("new-menu").addEventListener('click',menu);
+    document.getElementById("placeBet").addEventListener("click", placeBet); 
 
-    //go into the settings menu 
-    document.getElementById("settings").addEventListener("click",settings);     
-    //creates requested number of hands ----------------
 }
 
+//Take the number of decks to build a shoe,
+//then shuffle it and set initial bet as default current Bet
+function prepareForGame(){
+
+    //gets the user defined number of decks and starting balance 
+    getDecks(); 
+    getBankroll(); 
+    displaySums("curBet", dBet); //sets the default bet number
+    displaySums("remaining",remaining); 
+    //show a clean W/L ratio
+    displaySums("dubs",playerWin); 
+    displaySums("els",dealerWin); 
+    displaySums("ties",pushCount); 
+    
+
+    //creates a deck of 52 cards, shuffle it, then let user placeBet
+    shoe = buildDeck(numOfDecks); 
+    shoe = shuffleDeck(shoe); 
+}
+
+//Pull the number of decks and set the value for remaining cards 
+function getDecks(){
+    const urlParams = new URLSearchParams(window.location.search);
+    numOfDecks = urlParams.get("numOfDecks"); 
+    remaining = (numOfDecks * 52); 
+    // console.log(remaining); 
+}
  
+//Pull the starting balance and set value for current Bankroll
+function getBankroll(){
+    const urlParams = new URLSearchParams(window.location.search);
+    bankroll = urlParams.get("bankroll");   
+    displaySums("bankroll", bankroll);
+}
+
 //creates a deck of 52 cards in order
 function buildDeck(numberOfDecks){
     let values = ["ace", "2","3","4","5","6","7","8","9","10","jack","queen","king"]; 
     let types = ["c","d","h","s"]; 
-    shoe = []; 
+    theDeckBeingBuilt = []; 
     for(let count=0;count<numberOfDecks;count++){
 
         //for every card in each suit 
         for(let i=0;i<types.length;i++){
             for(let j=0;j<values.length;j++){
                 //Add the card to the deck 
-                shoe.push(values[j] + "-" + types[i]); // Ace-C -> King-C first 
+                theDeckBeingBuilt.push(values[j] + "-" + types[i]); // Ace-C -> King-C first 
             }
         }
     }
-    //console.log(shoe); //to check what's in the deck 
+    return theDeckBeingBuilt; 
+
 }
 
 //shuffles the order of the cards in the deck 
-function shuffleDeck(){
-    for(let i=0;i<shoe.length;i++){
-        let j = Math.floor(Math.random() * shoe.length); //(0-1)*52 => (0->51.999)
-        let temp = shoe[i]; 
-        shoe[i] = shoe[j];
-        shoe[j] = temp; 
+function shuffleDeck(theShoe){
+    for(let i=0;i<theShoe.length;i++){
+        let j = Math.floor(Math.random() * theShoe.length); //(0-1)*52 => (0->51.999)
+        let temp = theShoe[i]; 
+        theShoe[i] = theShoe[j];
+        theShoe[j] = temp; 
     }
-    console.log(shoe); 
+    // console.log(theShoe); 
+    return theShoe; 
 }
 
-// make the settings menu appear 
-function settings(){
-    console.log("Settings");
-    document.getElementById("settings-model").style.display = "inline"; 
-    document.getElementById("closer").addEventListener("click", closeSettings);
+//used for incrementing the bet amount in BettingTime
+function incBet(){
+    if(curBet +100 > bankroll){
+        curBet = bankroll; 
+    } else {
+        curBet += 100; 
+    }
+    displaySums("curBet", curBet); 
 }
 
-//closes the settings menu if the x is clicked or outside the box 
-function closeSettings(){
-    var e = document.getElementById("settings-model").style.display = "none"; 
+//used for decrementing the bet amount in BettingTime
+function decBet(){
+    if(curBet -100 < 0){
+        curBet = 0; 
+    } else {
+        curBet -= 100; 
+    }
+    displaySums("curBet", curBet); 
+}
+
+//after setting a bet amount, update bankroll and currentBet 
+function placeBet(){
+    // console.log("Cur BET: "+curBet);
+    // console.log("Bankroll: "+bankroll);
+    
+    // subtract bet from bankroll and mark current bet     
+    bankroll -= curBet; 
+    displaySums("usersbet",curBet);
+    displaySums("bankroll", bankroll); 
+
+    // hide the bet screen and show the game 
+    playingTime();
+
+
+    //displays the amount of cards left in the deck
+    displaySums("remaining", remaining); 
+    displaySums("bankroll", bankroll); 
+
+    //starts the game
+    if(firstRound){
+        startGame();
+    } else {
+        nexthand()
+    }
+    
 }
 
 //deals the cards to the player and first two of the dealers cards 
 function startGame(){
 
-    remaining-=4; 
-    displayRemCards();
+    remaining -=4 ;
+    firstRound = false; 
+    // console.log(remaining);  
+    displaySums("remaining",remaining); 
     
     //draw the first card, then give them a second hidden card
     secondCard(); 
@@ -118,7 +199,7 @@ function startGame(){
         var cardVal = getValue(card);
         playerSum += cardVal; 
         runningCount += count(cardVal);
-        document.getElementById("theCount").innerText = runningCount; 
+        displaySums("theCount",runningCount); 
 
 
         //increment ace count
@@ -131,22 +212,50 @@ function startGame(){
     //tries to reduce the players sum if over 21 
     if(playerSum == 21){
         stay(); 
-    }else if (playerSum > 21){
-        reduceAce()
-    }
+    } // }else if (playerSum > 21){
+    //     reduceAce()
+    // }
 
     //displays the players sum and dealer's faceup card before hit or stay
-    displayPlaySum(); 
+    displaySums("your-sum",playerSum);
     displaySums("deal-sum",dealerSum);
 
     //console.log("BEFORE CHECKS OF BUTTONS"); 
     //checks for any of the buttons being pressed 
     document.getElementById("hitbut").addEventListener("click",hit); 
     document.getElementById("staybut").addEventListener("click",stay); 
-    document.getElementById("new-game").addEventListener('click',restart);
-    document.getElementById("next-hand").addEventListener('click',nexthand);
+    document.getElementById("new-menu").addEventListener('click',menu);
+    document.getElementById("next-hand").addEventListener('click',bettingTime);
     document.getElementById("inCount").addEventListener("click",incrementCount);
     document.getElementById("deCount").addEventListener("click",decrementCount);
+}
+
+
+function bettingTime(){
+    let div = document.getElementById("the-game"); 
+    let div2 = document.getElementById("bettingScreen");
+    div.style.display = "none"; 
+    div2.style.display = "block";
+}
+
+function playingTime(){
+    let div = document.getElementById("the-game"); 
+    let div2 = document.getElementById("bettingScreen");
+    div.style.display = "block"; 
+    div2.style.display = "none"; 
+}
+
+
+// make the settings menu appear 
+function settings(){
+    // console.log("Settings");
+    document.getElementById("settings-model").style.display = "inline"; 
+    document.getElementById("closer").addEventListener("click", closeSettings);
+}
+
+//closes the settings menu if the x is clicked or outside the box 
+function closeSettings(){
+    var e = document.getElementById("settings-model").style.display = "none"; 
 }
 
 function count(value){
@@ -160,78 +269,71 @@ function count(value){
 
 function incrementCount(){
     playerCount ++; 
-    document.getElementById("ourCount").innerText = playerCount; 
+    displaySums("ourCount",playerCount); 
 }
 
 function decrementCount(){
     playerCount--; 
-    document.getElementById("ourCount").innerText = playerCount; 
-}
-
-function leaveMenu(){
-    //console.log("weirdo"); 
-
-    //leaves the menu 
-    removeElement("main-menu"); 
-
-    document.getElementById("rem-cards").style.display = "initial"; 
-
-    //displays the amount of cards left in the deck
-    document.getElementById("remaining").innerText = remaining;
-
-    startGame(); 
+    displaySums("ourCount",playerCount); 
 }
 
 //deals the next hand with the remaining cards in the deck
 function nexthand(){
+    if(stayButtonPressed){
 
-    //make sure there are enough cards 
-    if(remaining <12){
-        //if there are not enough cards prompt the user to 
-        var message = "Not Enough Cards, Draw from New Deck"; 
-        document.getElementById("results").innerText = message; 
-        return; 
+        // console.log(shoe); 
+        //make sure there are enough cards 
+        if(remaining <20){
+
+            newDeck = buildDeck(numOfDecks);
+            newDeck = shuffleDeck(newDeck); 
+            shoe = shoe.concat(newDeck);  
+            remaining += (52*numOfDecks); 
+
+            // //if there are not enough cards prompt the user to 
+            var message = "Not Enough Cards, Shuffled new Deck"; 
+            displaySums("results",message);
+
+        //only get rid of the results if they did not get a new deck 
+        } else {
+            clearBox("results"); 
+        }
+
+        //allows the user to hit 
+        stayButtonPressed = false; 
+
+        //wipes the current cards on the screen
+        clearBox("dealer-cards");
+        clearBox("your-cards"); 
+
+        //wipes the scores and winner
+        clearBox("deal-sum"); 
+        clearBox("your-sum"); 
+
+        //update the W/L 
+        displaySums("dubs",playerWin); 
+        displaySums("els",dealerWin); 
+        displaySums("ties",pushCount); 
+
+        //adds the blank card to dealers cards
+        //create an image tag 
+        let cardImg = document.createElement("img"); 
+
+        //resets player & dealer counts
+        playerAceCount =0; 
+        playerSum =0;
+        dealerAceCount = 0; 
+        dealerSum =0; 
+        canHit = true; 
+
+        //set src for image tag: <img src="./cards/4-c.png">
+        cardImg.src  = "./images/cards/BACK.png";
+        cardImg.id = "hidden"; 
+        document.getElementById("dealer-cards").append(cardImg);
+
+        //starts a new game 
+        startGame(); 
     }
-
-    console.log("FAILED TO STOP");
-
-    stayButtonPressed = false; 
-
-    //wipes the current cards on the screen
-    clearBox("dealer-cards");
-    clearBox("your-cards"); 
-
-    //wipes the scores and winner
-    clearBox("results"); 
-    clearBox("deal-sum"); 
-    clearBox("your-sum"); 
-
-    //update the W/L 
-    document.getElementById("dubs").innerText = playerWin;
-    document.getElementById("els").innerText = dealerWin; 
-    document.getElementById("ties").innerText = pushCount; 
-
-    //adds the blank card to dealers cards
-    //create an image tag 
-    let cardImg = document.createElement("img"); 
-
-    //resets player & dealer counts
-    playerAceCount =0; 
-    playerSum =0;
-    dealerAceCount = 0; 
-    dealerSum =0; 
-    canHit = true; 
-    hidden = shoe.pop(); 
-
-
-
-    //set src for image tag: <img src="./cards/4-c.png">
-    cardImg.src  = "./images/cards/BACK.png";
-    cardImg.id = "hidden"; 
-    document.getElementById("dealer-cards").append(cardImg);
-
-    //starts a new game 
-    startGame(); 
 }
 
 //draws the second card for the dealer 
@@ -249,7 +351,7 @@ function secondCard(){
     var cardVal = getValue(card);
     dealerSum += cardVal; 
     runningCount += count(cardVal);
-    document.getElementById("theCount").innerText = runningCount; 
+    displaySums("theCount",runningCount); 
 
     //increment ace count
     dealerAceCount += checkAce(card); 
@@ -294,17 +396,9 @@ function dealersTurn(){
         reduceAce(); 
     }
     //updates the running count
-    document.getElementById("theCount").innerText = runningCount;  
+    displaySums("theCount", runningCount); 
 
 }
-
-//attempt to fix main menu, clears the entire html
-function removeElement(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.parentNode.removeChild(element);
-    }
-  }
 
 //clears a division, wipes the cards 
 function clearBox(elementID){
@@ -312,9 +406,8 @@ function clearBox(elementID){
 }
 
 //reloads the page and provides the player with a fresh deck 
-function restart (){
-    window.location.reload();
-    return false; 
+function menu (){
+    window.location.href = "menu.html";
 }
 
 //user wants no more cards 
@@ -327,7 +420,7 @@ function stay(){
         //don't the user get any more cards 
         canHit = false; 
 
-        console.log(hidden); 
+        // console.log(hidden); 
 
         //unhides the hidden card 
         document.getElementById("hidden").src = "./images/cards/" + hidden + ".png";
@@ -336,62 +429,79 @@ function stay(){
 
         //player bust 
         if(playerSum > 21){
-            message = "You Lose!"; 
-            //update the W/L 
-            dealerWin++; 
+            message = "BUST, You Lose!"; 
 
-        //dealer bust 
+            //update the W/L 
+            dealerWin++;         
+
+        //same sum as the dealer 
+        } else if(playerSum == dealerSum){
+            message = "It's a Push!"; 
+            pushCount++; 
+            //give money back
+            bankroll += curBet; 
+
+        //if the player has 21 
+        } else if(playerSum == 21){
+            message = "BlackJack You Win"; 
+            playerWin++; 
+            bankroll += curBet*2.5; 
+            displaySums("payout", curBet*2.5);
+
         } else if(dealerSum >21){
             message = "You Win!"; 
             playerWin++; 
+
+            //2x Payout
+            bankroll += curBet*2; 
+            displaySums("payout",curBet)
+
         } 
-        //same sum as the dealer 
-        else if(playerSum == dealerSum){
-            message = "It's a Push!"; 
-            pushCount++; 
-        }
+        
         //player greater than dealer
         else if(playerSum > dealerSum){
             message = "You Win!"; 
-            //update the W/L 
             playerWin++; 
+
+            //double player bet and update bankroll
+            bankroll += curBet * 2; 
+            console.log("THE CUR BET IS: "+curBet); 
+            displaySums("payout",curBet);
+
         }
         //player less than dealer if(playerSum < dealerSum)
         else {
             message = "You Lose"; 
-            //update the W/L 
             dealerWin++; 
 
         }
-        console.log(playerWin);
-        console.log(dealerWin);
 
-        document.getElementById("dubs").innerText = playerWin;
-        document.getElementById("els").innerText = dealerWin;
-        document.getElementById("ties").innerText = pushCount; 
+
+        //displays the reminaing cards in the deck and user's balance
+        displaySums("remaining",remaining); 
+        displaySums("bankroll",bankroll); 
+
+        //update the Wins/Losses and recognize round is over 
+        displaySums("dubs",playerWin); 
+        displaySums("els",dealerWin); 
+        displaySums("ties", pushCount); 
+        
+        //updates the curBet for the next hand
+        if(curBet > bankroll){
+            curBet = bankroll; 
+        } 
+        displaySums("curBet",curBet); 
+
+
         stayButtonPressed = true; 
 
-        //displays dealers sum
+        //displays dealer and playerSum along with the Winner
         displaySums("deal-sum",dealerSum); 
-        //displays the players sum 
-        displayPlaySum(); 
-        //displays the winner 
+        displaySums("your-sum",playerSum);
         displaySums("results",message);  
 
-        //displays the reminaing cards in the deck 
-        displayRemCards(); 
     }
 
-}
-
-//displays the players current sum 
-function displayPlaySum(){
-    displaySums("your-sum",playerSum);
-}
-
-//displays the players remaining cards 
-function displayRemCards(){
-    displaySums("remaining",remaining); 
 }
 
 // displays the text in the id provided
@@ -402,18 +512,17 @@ function displaySums(id, text){
 //when a user requests another card, check if they can hit then provide card 
 function hit(){
 
-
-    //console.log(playerSum);
     //if the user can't hit return, otherwise give player a new card 
     if(!canHit){
-        console.log("YOU CAN'T HIT");
+        // console.log("YOU CAN'T HIT");
         return; 
     }
-
 
     //create an image tag 
     let cardImg = document.createElement("img"); 
 
+    console.log("THIS IS WHERE I'M GOING WRONG"); 
+    
     //get a card from the deck 
     let card = shoe.pop(); 
 
@@ -424,7 +533,7 @@ function hit(){
     var cardVal = getValue(card);
     playerSum += cardVal; 
     runningCount += count(cardVal);
-    document.getElementById("theCount").innerText = runningCount; 
+    displaySums("theCount",runningCount); 
 
     //increment ace count
     playerAceCount += checkAce(card); 
@@ -438,10 +547,11 @@ function hit(){
     }
 
     // displays the players sum 
-    displayPlaySum(); 
+    displaySums("your-sum",playerSum); 
+
     remaining -= 1; 
     //updates the amount of cards showing as displayed
-    displayRemCards();
+    displaySums("remaining",remaining); 
 }
 
 //gets an accurate player score accounting for ace being a 1 
@@ -489,8 +599,6 @@ function checkAce(card){
 }
 
 //NEED TO FIX OUT OF CARDS BUG WITH MULTIPLE DECKS
-// dealer not hitting when less than 17 (aces maybe) - think this is fixed 
-// Create a feature that ends turn if playerSum = 21 - should be done
 
 // auto new deck when running out of cards 
 //1. create the settings menu to show count, # of hands, & # of decks 
@@ -499,6 +607,6 @@ function checkAce(card){
     //implement a running count feature
 //2. want to add a feature to play multiple hands 
     //when playing with multiple decks make cards overlap 
-//5. add betting: 1,5,10 increments (player starts with $100 / Starting money amount)
+//3. add betting: 1,5,10 increments (player starts with $100 / Starting money amount)
     //add a cash out feature 
-//6. use cookies to save game progress. 
+//4. use cookies to save game progress. 
