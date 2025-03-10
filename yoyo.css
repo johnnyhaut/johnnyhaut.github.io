@@ -24,12 +24,13 @@ body {
     float: left;
     width: 33.333%;
     padding: 10px;
-    height: 1000px;
 }
 
 #firstColumn {
     width: 16%;
 }
+
+
 #main-count {
     background-color: black;
 }
@@ -44,19 +45,24 @@ body {
 
 #thirdColumn {
     width: 33.333%;
+    padding: none;
 }
 .menu {
     display: flex;
     align-items: center;
-    height: 4rem; 
+    height: 8%; 
     padding-left: 10px;
     /* background-color: rgb(86, 164, 31); */
+}
+
+#firstRow {
+    height: 88%;
 }
 #bottomRow {
     background-color:rgb(86, 164, 31);
     padding-left: 10rem;
     border-top:3px solid greenyellow;
-    height: 400px;
+    height: 4%;
 }
 
 /* MIDDLE COLUMN STYLES: The-Game*/
@@ -72,6 +78,7 @@ body {
     width: 125px;
     margin: 1px;
 }
+
 #your-cards img {
     height: 175px; 
     width: 125px; 
@@ -104,21 +111,17 @@ body {
     margin: .5rem;
 }
 
-/* .buttons {
-    white-space: nowrap;
-} */
-
 /* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
 table {
     border-collapse: collapse;
     width: 100%;
-    height: 100%;
+    height: 97%;
 }
 
 td, th {
     border: 1px solid black;
     text-align: center;
-    padding: 3px;
+    padding: 1px;
 }
 
 #hit {
@@ -138,3 +141,5 @@ td, th {
 #borderBlocks {
     background-color: grey;
 }
+
+
