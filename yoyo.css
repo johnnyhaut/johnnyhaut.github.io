@@ -1,6 +1,7 @@
 /* website colors and styles*/
 *{
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
 
 #main-count {
     background-color: black;
+    transition: background-color 0.3s ease-in-out;
 }
 #main-count:hover {
     background-color: white; 
@@ -92,22 +94,24 @@ body {
     font-size: 20px;
 }
 
-
-#next-hand { /*NEXT HAND BUTTON*/ 
-    width: 110px;
-    height: 50px;
-    font-size: 20px;
-}
 #placeBet { 
     width: 125px; 
     height: 50px;
     font-size: 20px;
     align-items: center;
 }
-#incBet, #decBet, #staybut, #hitbut {
+
+#incBet, #decBet, #staybut, #hitbut{
     width: 100px;
     height: 50px; 
     font-size: 20px;
+    margin: .5rem;
+}
+#next-hand {
+    text-wrap: nowrap;
+    width: 110px; 
+    height: 50px; 
+    font-size: 20px; 
     margin: .5rem;
 }
 
@@ -116,30 +120,131 @@ table {
     border-collapse: collapse;
     width: 100%;
     height: 97%;
+    background-color: black;
 }
 
 td, th {
     border: 1px solid black;
     text-align: center;
     padding: 1px;
+    background-color: black;
+    transition: background-color 0.3s ease-in-out;
+}
+table:hover td,
+table:hover th {
+    background-color: inherit;
 }
 
-#hit {
+table:hover #hit {
     background-color: yellow;
 }
-#stay {
+table:hover #stay {
     background-color: lightgreen;
 }
-#double {
+table:hover #double {
     background-color: red;
 }
 
-#split {
+table:hover #split {
     background-color: lightblue;
 }
 
-#borderBlocks {
+table:hover #borderBlocks {
     background-color: grey;
 }
 
+table:hover table {
+    background-color: black;
+}
 
+/* NAV BAR */
+.headings{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #24262b;
+    max-height: 185px;
+    box-sizing: border-box;
+}
+
+nav{
+    gap: 5rem;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: gold;
+    text-decoration: underline;
+}
+
+/* Main Menu Settings */
+
+#main-menu {
+    display: flex;
+    position: absolute; 
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background {
+    /* Optional: Add some border or styling */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+.menu-buttons {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+
+#start, #settings {
+    width: 100px;
+    height: 50px;
+    margin: 1rem;
+}
+
+#settings-model {
+    border: 2px solid black;
+    display:none;
+}
+
+#settings-model h1 {
+    text-decoration: underline;
+}
+
+.settings-menu {
+    background-color: grey;
+    padding: 1rem;
+    padding-top: 2px;
+}
+.closer-box {
+    float: right;
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+}

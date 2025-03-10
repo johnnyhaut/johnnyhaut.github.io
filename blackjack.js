@@ -232,10 +232,13 @@ function startGame(){
 
 
 function bettingTime(){
-    let div = document.getElementById("the-game"); 
-    let div2 = document.getElementById("bettingScreen");
-    div.style.display = "none"; 
-    div2.style.display = "block";
+    // accounts for when they are trying to skip over current hand 
+    if(stayButtonPressed){
+        let div = document.getElementById("the-game"); 
+        let div2 = document.getElementById("bettingScreen");
+        div.style.display = "none"; 
+        div2.style.display = "block";
+    }
 }
 
 function playingTime(){

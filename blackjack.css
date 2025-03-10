@@ -6,88 +6,9 @@ body {
     padding: 0;
     display: flex;
     padding-top: 12rem;
-    overscroll-behavior-y: hidden;
+    overscroll-behavior: none;
     overflow-x: hidden;
 }
- 
-#hit {
-    background-color: yellow;
-}
-#stay {
-    background-color: lightgreen;
-}
-#double {
-    background-color: red;
-}
-
-#split {
-    background-color: lightblue;
-}
-
-#borderBlocks {
-    background-color: grey;
-}
-
-#background {
-    width: 100vw;
-    height: 100vh;
-}
-
-.the-game {
-    width: 66vw;
-    height: 100vh;
-}
-
-.the-game h2 {
-    padding-top: 5rem;
-    text-align: center;
-}
-#dealer-sum {
-    text-align: center;
-}
-
-#dealer-cards img {
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-}
-
-#your-cards img {
-    height: 175px; 
-    width: 125px; 
-    margin: 1px;
-}
-
-.button {
-    white-space: nowrap;
-}
-#hitbut {
-    width: 100px;
-    height: 50px; 
-    font-size: 20px;
-}
-
-#staybut {
-    width: 100px;
-    height: 50px; 
-    font-size: 20px;
-}
-
-#new-game {
-    float: left;
-    margin: 2rem;
-    width: 125px;
-    height: 50px;
-    font-size: 20px;
-}
-
-#next-hand {
-    width: 110px;
-    height: 50px;
-    font-size: 20px;
-}
-
-
 
 #main-menu {
     display: flex;
@@ -95,7 +16,7 @@ body {
     background-color: white;
     flex-direction: column;
     align-items: center;
-    padding-top: 10%;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
 }
@@ -111,15 +32,10 @@ body {
     position: relative;
     flex-direction: column;
     margin: 1rem;
-
 }
 
-#start {
-    width: 100px;
-    height: 50px;
-    margin: 1rem;
-}
-#settings {
+
+#start, #settings {
     width: 100px;
     height: 50px;
     margin: 1rem;
@@ -147,70 +63,17 @@ body {
     border-radius: 50%;
 }
 
-table {
-    border-collapse: collapse;
-
-}
-
-.basic-strategy {
-    width:33vw;
-    height: 100vh;
-    margin-bottom: 15rem;
-    margin-right: 1rem;
-    margin-top: 1rem;
-}
-
-td, th {
-    border: 1px solid black;
-    text-align: center;
-    padding: 7px;
-}
-
-.running-count h1{
-    font-size: 2.5rem;
-}
-.running-count h2 {
-    background-color: yellow;
-    font-size: 1rem;
-}
-.running-count h3 {
-    font-size: 1rem;
-}
-
-.running-count {
-    text-align: center;
-}
-.playerCount {
-    display:flex;
-}
-.playerCount button {
-    margin: .5rem;
-    height: 3rem;
-}
-
-#rem-cards {
-    justify-content: center;
-    display: inline;
-}
 
 /* NAV BAR */
 .headings{
     position: absolute;
-    align-items: center;
-    justify-content: space-between;
     background: #24262b;
     max-height: 185px;
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
-    z-index: 10;
 }
-
-/**
-ul {    margin-left: 12rem;
-}
-*/
 
 nav{
     gap: 5rem;
@@ -237,6 +100,3 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 
-#betting h1{
-    display: inline; 
-}

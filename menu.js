@@ -1,6 +1,6 @@
 
 var numOfDecks = 3; 
-var bankroll = 1000; 
+var bankroll = 250; 
 
 //upon starting the website 
 window.onload = function() {
