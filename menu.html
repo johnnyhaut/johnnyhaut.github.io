@@ -31,30 +31,32 @@
         </nav></div>
 
         <!-- The main menu for the game: shows settings and start-->
-        <div class="main-menu">
-            <div id="main-menu">
-                <h1>Black Jack</h1>
+        <div class="main-menu" id="main-menu">
+            <h1>Black Jack</h1>
 
-                <div class="menu-buttons">
-                    <button id="start">Start</button>
-                    <button id="settings">Settings</button>
-                </div>
-
-                <div id="settings-model">
-
-                    <div class="settings-menu">
-
-                        <div class="closer-box">
-                            <button id="closer">X</button>
-                        </div>
-
-                        <h1>The Settings</h1>
-                        <h2>Number of Decks</h2>
-                        <h2>Number of Hands Played</h2>
-                    </div>
-                </div>
-
+            <div class="menu-buttons">
+                <button id="start">Start</button>
+                <button id="settings">Settings</button>
             </div>
+
+
+            <div id="settings-model">
+
+                <div class="settings-menu">
+
+                    <div class="closer-box">
+                        <button id="closer">X</button>
+                    </div>
+
+                    <h1>The Settings</h1>
+                    <label for="startingMoney" id="startMonz">Starting Money:</label>
+                    <input type="number" id="startingMoney" value="1000">
+                    <br><br>
+                    <label for="numDecks" id="startDeckz">Number of Decks:</label>
+                    <input type="number" id="numDecks" value="1">
+                </div>
+            </div>
+
         </div>
 
     </body>

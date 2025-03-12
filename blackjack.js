@@ -35,7 +35,7 @@ var canHit = true;
 
 //accounts for how much money the player has and the current bet 
 var bankroll; 
-var dBet = 100; 
+var dBet = 15; 
 var curBet = dBet; 
 
 //use this to make the settings popup disappear 
@@ -50,13 +50,43 @@ window.onload = function() {
     prepareForGame(); 
     
     //wait for user to place their bet 
-    document.getElementById("incBet").addEventListener("click", incBet);
-    document.getElementById("decBet").addEventListener("click", decBet);
+    document.getElementById("incBet").addEventListener("click", function(){incBet(5)});
+    document.getElementById("decBet").addEventListener("click", function(){decBet(5)});
+
+    document.getElementById("incBet10").addEventListener("click", function(){incBet(10)});
+    document.getElementById("decBet10").addEventListener("click", function(){decBet(10)});
+
+    document.getElementById("incBet25").addEventListener("click", function(){incBet(25)});
+    document.getElementById("decBet25").addEventListener("click", function(){decBet(25)});
+
+    document.getElementById("incBet50").addEventListener("click", function(){incBet(50)});
+    document.getElementById("decBet50").addEventListener("click", function(){decBet(50)});
+
+    document.getElementById("maxBet").addEventListener("click", maxBet); 
     document.getElementById("new-menu").addEventListener('click',menu);
+    document.getElementById("countBut").addEventListener("click",flipCount); 
+    document.getElementById("stratBut").addEventListener("click",flipStrat); 
     document.getElementById("placeBet").addEventListener("click", placeBet); 
 
 }
 
+function flipStrat(){
+    console.log("I'm flipping the strategy"); 
+    theButton = document.querySelector('input:checked');
+    if(theButton){
+        console.log("ya the buttons checked");
+        document.getElementById("stratTable").style.backgroundColor = "none"; 
+        document.getElementById("stratTable").style.color = "black"; 
+    } else {
+        console.log("nah it's not"); 
+        document.getElementById("stratTable").style.backgroundColor = "rgb(141,221,141)"; 
+        document.getElementById("stratTable").style.backgroundColor = "rgb(141,221,141)"; 
+
+    }  
+}
+function flipCount(){
+    console.log("I'm flipping the Count"); 
+}
 //Take the number of decks to build a shoe,
 //then shuffle it and set initial bet as default current Bet
 function prepareForGame(){
@@ -123,22 +153,28 @@ function shuffleDeck(theShoe){
     return theShoe; 
 }
 
+function maxBet(){
+    curBet = bankroll; 
+    displaySums("curBet", curBet); 
+}
+
 //used for incrementing the bet amount in BettingTime
-function incBet(){
-    if(curBet +100 > bankroll){
+function incBet(theBet){
+    if(curBet + theBet > bankroll){
         curBet = bankroll; 
     } else {
-        curBet += 100; 
+        curBet += theBet; 
     }
     displaySums("curBet", curBet); 
 }
 
 //used for decrementing the bet amount in BettingTime
-function decBet(){
-    if(curBet -100 < 0){
+function decBet(zBet){
+
+    if(curBet -zBet < 0){
         curBet = 0; 
     } else {
-        curBet -= 100; 
+        curBet -= zBet; 
     }
     displaySums("curBet", curBet); 
 }
@@ -248,18 +284,6 @@ function playingTime(){
     div2.style.display = "none"; 
 }
 
-
-// make the settings menu appear 
-function settings(){
-    // console.log("Settings");
-    document.getElementById("settings-model").style.display = "inline"; 
-    document.getElementById("closer").addEventListener("click", closeSettings);
-}
-
-//closes the settings menu if the x is clicked or outside the box 
-function closeSettings(){
-    var e = document.getElementById("settings-model").style.display = "none"; 
-}
 
 function count(value){
     if(value < 7){
@@ -448,8 +472,8 @@ function stay(){
         } else if(playerSum == 21){
             message = "BlackJack You Win"; 
             playerWin++; 
-            bankroll += curBet*2.5; 
-            displaySums("payout", curBet*2.5);
+            bankroll += Math.floor(curBet*2.5); 
+            displaySums("payout", Math.floor(curBet*2.5));
 
         } else if(dealerSum >21){
             message = "You Win!"; 
@@ -457,7 +481,7 @@ function stay(){
 
             //2x Payout
             bankroll += curBet*2; 
-            displaySums("payout",curBet)
+            displaySums("payout",curBet *2);
 
         } 
         
@@ -468,8 +492,7 @@ function stay(){
 
             //double player bet and update bankroll
             bankroll += curBet * 2; 
-            console.log("THE CUR BET IS: "+curBet); 
-            displaySums("payout",curBet);
+            displaySums("payout",curBet*2);
 
         }
         //player less than dealer if(playerSum < dealerSum)

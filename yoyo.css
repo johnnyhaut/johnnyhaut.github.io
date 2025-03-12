@@ -34,11 +34,14 @@ body {
 
 
 #main-count {
-    background-color: black;
+    background-color: rgb(141,221,141);
+    color: rgb(141,221,141);
     transition: background-color 0.3s ease-in-out;
 }
 #main-count:hover {
     background-color: white; 
+    color: black;
+
 }
 
 #secondColumn {
@@ -63,8 +66,9 @@ body {
 }
 #bottomRow {
     background-color:rgb(86, 164, 31);
+    /* background-color: rgb(141,221,141); */
     padding-left: 10rem;
-    border-top:3px solid greenyellow;
+    border-top:3px solid rgb(141,221,141);
     height: 4%;
 }
 
@@ -102,7 +106,7 @@ body {
     align-items: center;
 }
 
-#incBet, #decBet, #staybut, #hitbut{
+#incBet, #incBet10, #incBet25, #incBet50, #decBet, #decBet10, #decBet25, #decBet50, #staybut, #hitbut{
     width: 100px;
     height: 50px; 
     font-size: 20px;
@@ -125,23 +129,23 @@ body {
 }
 
 /* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
-table {
+#stratTable {
     border-collapse: collapse;
     width: 100%;
     height: 97%;
-    background-color: black;
 }
 
-td, th {
+th {
     border: 1px solid black;
     text-align: center;
     padding: 1px;
-    background-color: black;
+    background-color: rgb(141,221,141);
+    color: rgb(141,221,141);
     transition: background-color 0.3s ease-in-out;
 }
-table:hover td,
 table:hover th {
     background-color: inherit;
+    color: black;
 }
 
 table:hover #hit {
@@ -208,10 +212,10 @@ nav ul li a:hover{
 #main-menu {
     display: flex;
     position: absolute; 
+    padding-top: 10%;
     background-color: white;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100vw;
 }
@@ -250,10 +254,63 @@ nav ul li a:hover{
     padding: 1rem;
     padding-top: 2px;
 }
+.settings-menu input {
+    width: 100px;
+    height: 25px;
+    outline: 1px solid black;
+}
+
+#startDeckz{
+    padding-right: 50px;
+}
+#startMonz {
+    padding-right: 66px;
+}
+
 .closer-box {
     float: right;
     width: 10px;
     height: 10px;
     background-color: grey;
     border-radius: 50%;
+}
+
+/* This is for my switches */
+
+.switch-container {
+    display: flex;
+    align-items: center;
+}
+
+.switch-container input {
+    -webkit-appearance: none; 
+    position: relative;
+    width: 50px; 
+    height: 30px; 
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+}
+
+.switch-container input::after {
+    content: ''; 
+    position: absolute; 
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    height: 1.25rem; 
+    width: 1.25rem;
+    background-color: rgb(255,255,255);
+    transition: left .3s;
+}
+
+.switch-container input:checked {
+    background-color: rgb(141,221,141);
+}
+
+.switch-container input:checked::after {
+    left: 70%; 
 }

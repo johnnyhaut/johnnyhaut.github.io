@@ -41,8 +41,13 @@
                     <h3>Card is a 7, 8, OR 9 (0)</h3>
                     <h3>Card is a 10 OR A (-1)</h3>
         
-                    <!--<h1>Last Cards</h1> -->
-        
+
+                    <div class="switch-container">
+                        <span>Running Count</span> <input type="checkbox" id="countBut">
+                    </div>
+                    <div class="switch-container">
+                    <span>Basic Strategy</span> <input type="checkbox" id="stratBut">
+                    </div>
         
                 </div>
             </div>
@@ -52,8 +57,14 @@
                 <div class="bettingScreen" id="bettingScreen">
                     <div class="bets">
                         <h1>Current Bet: <span id="curBet">100</span></h1>
-                        <button id="incBet">Inc Bet (+100)</button>
-                        <button id="decBet">Dec Bet (-100)</button>
+                        <button id="incBet">Inc Bet (+5)</button>
+                        <button id="decBet">Dec Bet (-5)</button><br>
+                        <button id="incBet10">Inc Bet (+10)</button>
+                        <button id="decBet10">Dec Bet (-10)</button><br>
+                        <button id="incBet25">Inc Bet (25)</button>
+                        <button id="decBet25">Dec Bet (-25)</button><br>
+                        <button id="incBet50">Inc Bet (+50)</button>
+                        <button id="decBet50">Dec Bet (-50)</button><br>
                         <button id="maxBet">Max Bet (All In)</button>
                     </div>
                     <button id="placeBet">Place Bet</button> <span id="invalidbet"></span>
@@ -89,7 +100,7 @@
             <!-- THIS IS THE THIRD COLUMN - BASIC STRATEGY CHART -->
             <div class="secColumn" id="thirdColumn">
                 <div class="basic-strategy">
-                    <table>
+                    <table id="stratTable">
                         <!--Dealers Upcard-->
                         <tr>
                             <th id="borderBlocks"></th>
