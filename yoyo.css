@@ -284,7 +284,6 @@ nav ul li a:hover{
 }
 
 .switch-container input {
-    -webkit-appearance: none; 
     position: relative;
     width: 50px; 
     height: 30px; 
