@@ -52,13 +52,10 @@ window.onload = function() {
     //wait for user to place their bet 
     document.getElementById("incBet").addEventListener("click", function(){incBet(5)});
     document.getElementById("decBet").addEventListener("click", function(){decBet(5)});
-
     document.getElementById("incBet10").addEventListener("click", function(){incBet(10)});
     document.getElementById("decBet10").addEventListener("click", function(){decBet(10)});
-
     document.getElementById("incBet25").addEventListener("click", function(){incBet(25)});
     document.getElementById("decBet25").addEventListener("click", function(){decBet(25)});
-
     document.getElementById("incBet50").addEventListener("click", function(){incBet(50)});
     document.getElementById("decBet50").addEventListener("click", function(){decBet(50)});
 
@@ -75,8 +72,9 @@ function flipStrat(){
     theButton = document.querySelector('input:checked');
     if(theButton){
         console.log("ya the buttons checked");
-        document.getElementById("stratTable").style.backgroundColor = "none"; 
+        document.getElementById("stratTable").style.backgroundColor = "black"; 
         document.getElementById("stratTable").style.color = "black"; 
+
     } else {
         console.log("nah it's not"); 
         document.getElementById("stratTable").style.backgroundColor = "rgb(141,221,141)"; 

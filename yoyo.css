@@ -2,11 +2,12 @@
 *{
     box-sizing: border-box;
     font-family: sans-serif;
+    scroll-behavior: smooth !important;
+    padding: 0;
 }
 
 body {
     margin: 0;
-    padding: 0;
     height: 100%;
     width: 100%;
     overflow-y: hidden;
@@ -129,11 +130,7 @@ body {
 }
 
 /* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
-#stratTable {
-    border-collapse: collapse;
-    width: 100%;
-    height: 97%;
-}
+
 
 th {
     border: 1px solid black;
@@ -143,33 +140,37 @@ th {
     color: rgb(141,221,141);
     transition: background-color 0.3s ease-in-out;
 }
-table:hover th {
+#stratTable:hover th {
     background-color: inherit;
     color: black;
 }
 
-table:hover #hit {
+#stratTable:hover #hit {
     background-color: yellow;
 }
-table:hover #stay {
+#stratTable:hover #stay {
     background-color: lightgreen;
 }
-table:hover #double {
+#stratTable:hover #double {
     background-color: red;
 }
 
-table:hover #split {
+#stratTable:hover #split {
     background-color: lightblue;
 }
 
-table:hover #borderBlocks {
+#stratTable:hover #borderBlocks {
     background-color: grey;
 }
 
-table:hover table {
+#stratTable:hover table {
     background-color: black;
 }
-
+#stratTable {
+    border-collapse: collapse;
+    width: 100%;
+    height: 97%;
+}
 /* NAV BAR */
 .headings{
     position: relative;
