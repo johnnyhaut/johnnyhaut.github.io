@@ -72,18 +72,56 @@ function flipStrat(){
     theButton = document.querySelector('input:checked');
     if(theButton){
         console.log("ya the buttons checked");
-        document.getElementById("stratTable").style.backgroundColor = "black"; 
-        document.getElementById("stratTable").style.color = "black"; 
+        switchStyles("stay","background-color","rgb(141,221,141)"); 
+        switchStyles("stay","color","black"); 
+        switchStyles("hit","color","black"); 
+        switchStyles("hit","background-color","yellow"); 
+        switchStyles("double","background-color","red"); 
+        switchStyles("double","color","black"); 
+        switchStyles("borderblocks","background-color","grey"); 
+        switchStyles("borderblocks","color","black"); 
+        switchStyles("split","background-color","lightblue"); 
+        switchStyles("split","color","black"); 
+
+
+
 
     } else {
         console.log("nah it's not"); 
-        document.getElementById("stratTable").style.backgroundColor = "rgb(141,221,141)"; 
-        document.getElementById("stratTable").style.backgroundColor = "rgb(141,221,141)"; 
-
+        switchStyles("stay","background-color","rgb(141,221,141)"); 
+        switchStyles("stay","color","rgb(141,221,141)"); 
+        switchStyles("hit","color","rgb(141,221,141)"); 
+        switchStyles("hit","background-color","rgb(141,221,141)"); 
+        switchStyles("double","background-color","rgb(141,221,141)"); 
+        switchStyles("double","color","rgb(141,221,141)"); 
+        switchStyles("borderblocks","background-color","rgb(141,221,141)"); 
+        switchStyles("borderblocks","color","rgb(141,221,141)"); 
+        switchStyles("split","background-color","rgb(141,221,141)"); 
+        switchStyles("split","color","rgb(141,221,141)"); 
     }  
 }
+
+function switchStyles(className, styleProperty, newStyleValue){
+    const elements = document.querySelectorAll(`.${className}`);
+    elements.forEach(element => {
+        element.style[styleProperty] = newStyleValue; 
+    }); 
+}
+
 function flipCount(){
     console.log("I'm flipping the Count"); 
+    theButton = document.querySelector('input:checked');
+    if(theButton){
+        console.log("YE we checked"); 
+        document.getElementById("main-count").style.backgroundColor = "white"; 
+        document.getElementById("main-count").style.color = "black"; 
+
+    } else {
+        document.getElementById("main-count").style.backgroundColor = "rgb(141,221,141)"; 
+        document.getElementById("main-count").style.color = "rgb(141,221,141)"; 
+        console.log("Nosir we are not indead checked"); 
+    }
+    
 }
 //Take the number of decks to build a shoe,
 //then shuffle it and set initial bet as default current Bet

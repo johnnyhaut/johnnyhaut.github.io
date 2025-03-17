@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     scroll-behavior: smooth !important;
-    padding: 0;
+    /* padding: 0; */
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 }
 
 #firstColumn {
-    width: 16%;
+    width: 12%;
 }
 
 
@@ -40,18 +40,18 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 #main-count:hover {
-    background-color: white; 
-    color: black;
+    background-color: white !important;
+    color: black !important; 
 
 }
 
 #secondColumn {
-    width: 50.667%;
+    width: 64.667%;
     text-align: center;
 }
 
 #thirdColumn {
-    width: 33.333%;
+    width: 23.333%;
     padding: none;
 }
 .menu {
@@ -67,7 +67,7 @@ body {
 }
 #bottomRow {
     background-color:rgb(86, 164, 31);
-    /* background-color: rgb(141,221,141); */
+    background-color: rgb(141,221,141);
     padding-left: 10rem;
     border-top:3px solid rgb(141,221,141);
     height: 4%;
@@ -140,27 +140,55 @@ th {
     color: rgb(141,221,141);
     transition: background-color 0.3s ease-in-out;
 }
+
+/* THIS IS NEW CODE */
+#stratTable th {
+    /* color: black; */
+}
+
+#stratTable .hit {
+    /* background-color: yellow; */
+}
+#stratTable .stay {
+    background-color: rgb(141,221,141);
+}
+#stratTable .double {
+    /* background-color: red; */
+}
+
+#stratTable .split {
+    /* background-color: lightblue; */
+}
+
+#stratTable .borderBlocks {
+    /* background-color: grey; */
+}
+
+#stratTable table {
+    background-color: black;
+}
+/* THIS IS THE NORMAL CODE  */
 #stratTable:hover th {
     background-color: inherit;
-    color: black;
+    color: black !important;
 }
 
-#stratTable:hover #hit {
-    background-color: yellow;
+#stratTable:hover .hit {
+    background-color: yellow !important;
 }
-#stratTable:hover #stay {
-    background-color: lightgreen;
+#stratTable:hover .stay {
+    background-color: rgb(141,221,141) !important;
 }
-#stratTable:hover #double {
-    background-color: red;
-}
-
-#stratTable:hover #split {
-    background-color: lightblue;
+#stratTable:hover .double {
+    background-color: red !important;
 }
 
-#stratTable:hover #borderBlocks {
-    background-color: grey;
+#stratTable:hover .split {
+    background-color: lightblue !important;
+}
+
+#stratTable:hover .borderBlocks {
+    background-color: grey !important;
 }
 
 #stratTable:hover table {
@@ -183,7 +211,7 @@ th {
 }
 
 nav{
-    gap: 5rem;
+    gap: 75rem;
     display: flex;
     margin: auto;
     align-items: center;
@@ -270,20 +298,23 @@ nav ul li a:hover{
 
 .closer-box {
     float: right;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: grey;
-    border-radius: 50%;
 }
-
+.closer {
+    width: 6px;
+}
 /* This is for my switches */
 
-.switch-container {
+.switchin-container {
     display: flex;
     align-items: center;
 }
 
-.switch-container input {
+.switchin-container input {
+    /* THIS IS USEFUL! DO NOT REMOVE! */
+    -webkit-appearance: none; 
     position: relative;
     width: 50px; 
     height: 30px; 
@@ -294,7 +325,7 @@ nav ul li a:hover{
     cursor: pointer;
 }
 
-.switch-container input::after {
+.switchin-container input::after {
     content: ''; 
     position: absolute; 
     top: 50%;
@@ -307,10 +338,10 @@ nav ul li a:hover{
     transition: left .3s;
 }
 
-.switch-container input:checked {
+.switchin-container input:checked {
     background-color: rgb(141,221,141);
 }
 
-.switch-container input:checked::after {
+.switchin-container input:checked::after {
     left: 70%; 
 }
