@@ -50,7 +50,7 @@ body{
 }
 
 nav{
-    gap: 75rem;
+    gap: 25rem;
     display: flex;
     margin: auto;
     align-items: center;
@@ -76,12 +76,6 @@ nav ul li a:hover{
 }
 
 /** INTRODUCTION SECTION */
-#update-soon-screen {
-    height: 730px;
-    width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .intro{
     /* padding: 2rem; */

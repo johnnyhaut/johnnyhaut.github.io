@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     scroll-behavior: smooth !important;
-    /* padding: 0; */
+    padding: 0;
 }
 
 body {
@@ -30,9 +30,8 @@ body {
 }
 
 #firstColumn {
-    width: 12%;
+    width: 16%;
 }
-
 
 #main-count {
     background-color: rgb(141,221,141);
@@ -42,16 +41,15 @@ body {
 #main-count:hover {
     background-color: white !important;
     color: black !important; 
-
 }
 
 #secondColumn {
-    width: 64.667%;
+    width: 58.667%;
     text-align: center;
 }
 
 #thirdColumn {
-    width: 23.333%;
+    width: 25.333%;
     padding: none;
 }
 .menu {
@@ -210,8 +208,15 @@ th {
     box-sizing: border-box;
 }
 
+#update-soon-screen {
+    height: 650px;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 nav{
-    gap: 75rem;
+    gap: 25rem;
     display: flex;
     margin: auto;
     align-items: center;
