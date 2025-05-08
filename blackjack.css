@@ -33,26 +33,23 @@ body {
     width: 16%;
 }
 
-
 #main-count {
     background-color: rgb(141,221,141);
     color: rgb(141,221,141);
     transition: background-color 0.3s ease-in-out;
 }
-
 #main-count:hover {
-    background-color: white; 
-    color: black;
-
+    background-color: white !important;
+    color: black !important; 
 }
 
 #secondColumn {
-    width: 50.667%;
+    width: 58.667%;
     text-align: center;
 }
 
 #thirdColumn {
-    width: 33.333%;
+    width: 25.333%;
     padding: none;
 }
 .menu {
@@ -60,6 +57,7 @@ body {
     align-items: center;
     height: 8%; 
     padding-left: 10px;
+    gap: 39rem;
     /* background-color: rgb(86, 164, 31); */
 }
 
@@ -88,12 +86,16 @@ body {
     margin: 1px;
 }
 
-#your-cards img {
+#your-cards img, #split-cards img{
     height: 175px; 
     width: 125px; 
     margin: 1px;
 }
 
+#split-cards-title {
+    margin-top: 10000px;
+    display: none;
+}
 /* THE BLACKJACK BUTTONS ON THE SCREEN */
 #new-menu { /*MENU BUTTON */ 
     width: 125px;
@@ -108,7 +110,7 @@ body {
     align-items: center;
 }
 
-#incBet, #incBet10, #incBet25, #incBet50, #decBet, #decBet10, #decBet25, #decBet50, #staybut, #hitbut{
+#incBet, #incBet10, #incBet25, #incBet50, #decBet, #decBet10, #decBet25, #decBet50, #staybut, #hitbut, #splitIt, #double-down{
     width: 100px;
     height: 50px; 
     font-size: 20px;
@@ -144,25 +146,25 @@ th {
 
 /* THIS IS NEW CODE */
 #stratTable th {
-    color: black;
+    /* color: black; */
 }
 
-#stratTable #hit {
-    background-color: yellow;
+#stratTable .hit {
+    /* background-color: yellow; */
 }
-#stratTable #stay {
-    background-color: lightgreen;
+#stratTable .stay {
+    background-color: rgb(141,221,141);
 }
-#stratTable #double {
-    background-color: red;
-}
-
-#stratTable #split {
-    background-color: lightblue;
+#stratTable .double {
+    /* background-color: red; */
 }
 
-#stratTable #borderBlocks {
-    background-color: grey;
+#stratTable .split {
+    /* background-color: lightblue; */
+}
+
+#stratTable .borderBlocks {
+    /* background-color: grey; */
 }
 
 #stratTable table {
@@ -171,25 +173,25 @@ th {
 /* THIS IS THE NORMAL CODE  */
 #stratTable:hover th {
     background-color: inherit;
-    color: black;
+    color: black !important;
 }
 
-#stratTable:hover #hit {
-    background-color: yellow;
+#stratTable:hover .hit {
+    background-color: yellow !important;
 }
-#stratTable:hover #stay {
-    background-color: lightgreen;
+#stratTable:hover .stay {
+    background-color: rgb(141,221,141) !important;
 }
-#stratTable:hover #double {
-    background-color: red;
-}
-
-#stratTable:hover #split {
-    background-color: lightblue;
+#stratTable:hover .double {
+    background-color: red !important;
 }
 
-#stratTable:hover #borderBlocks {
-    background-color: grey;
+#stratTable:hover .split {
+    background-color: lightblue !important;
+}
+
+#stratTable:hover .borderBlocks {
+    background-color: grey !important;
 }
 
 #stratTable:hover table {
@@ -211,8 +213,15 @@ th {
     box-sizing: border-box;
 }
 
+#update-soon-screen {
+    height: 650px;
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 nav{
-    gap: 5rem;
+    gap: 25rem;
     display: flex;
     margin: auto;
     align-items: center;
@@ -299,20 +308,23 @@ nav ul li a:hover{
 
 .closer-box {
     float: right;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: grey;
-    border-radius: 50%;
 }
-
+.closer {
+    width: 6px;
+}
 /* This is for my switches */
 
-.switch-container {
+.switchin-container {
     display: flex;
     align-items: center;
 }
 
-.switch-container input {
+.switchin-container input {
+    /* THIS IS USEFUL! DO NOT REMOVE! */
+    -webkit-appearance: none; 
     position: relative;
     width: 50px; 
     height: 30px; 
@@ -323,7 +335,7 @@ nav ul li a:hover{
     cursor: pointer;
 }
 
-.switch-container input::after {
+.switchin-container input::after {
     content: ''; 
     position: absolute; 
     top: 50%;
@@ -336,10 +348,10 @@ nav ul li a:hover{
     transition: left .3s;
 }
 
-.switch-container input:checked {
+.switchin-container input:checked {
     background-color: rgb(141,221,141);
 }
 
-.switch-container input:checked::after {
+.switchin-container input:checked::after {
     left: 70%; 
 }

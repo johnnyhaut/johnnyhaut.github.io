@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BlackJack 2.0</title>
-        <link rel="stylesheet" href="yoyo.css">
+        <link rel="stylesheet" href="blackjack.css">
         <script src="blackjack.js"></script>
     </head>
 
@@ -12,6 +12,8 @@
         <!-- THIS IS THE MENU BUTTON THAT TAKES UP THE FIRST TOP ROW -->
         <div class="menu">
             <button id="new-menu">Menu</button>
+            <p id="results"></p>
+
         </div>
 
         <!-- THIS IS THE FIRST ROW - MAIN PART OF SCREEN -->
@@ -46,7 +48,7 @@
                         <span>Running Count</span> <input type="checkbox" id="countBut">
                     </div>
                     <div class="switchin-container">
-                    <span>Basic Strategy</span> <input type="checkbox" id="stratBut">
+                        <span>Basic Strategy</span> <input type="checkbox" id="stratBut">
                     </div>
         
                 </div>
@@ -84,15 +86,23 @@
                     <div id="your-cards">
         
                     </div>
+                    
+                    <h2 id="split-cards-title">Split Cards: <span id="split-sum"></span></h2>
+                    <div id="split-cards">
+                        <!-- <img src="./images/cards/5-h.png">
+                        <img src="./images/cards/5-h.png"> -->
+                    </div>
         
                     <br>
                     <div class="buttons">
                         <button id="hitbut">Hit</button>
+                        <button id="double-down">Double</button>
+                        <button id="splitIt">Split</button>
+                        <br>
                         <button id="staybut">Stay</button>
                         <button id="next-hand">Next Hand</button>
                     </div>
         
-                    <p id="results"></p>
                 </div>
 
             </div>

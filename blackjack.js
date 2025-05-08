@@ -6,6 +6,7 @@ var pushCount = 0;
 //holds the current Sums and ace counts 
 var playerSum =0; 
 var dealerSum =0;
+var splitSum = 0; 
 var playerAceCount =0; 
 var dealerAceCount =0; 
 var firstRound = true; 
@@ -13,6 +14,8 @@ var firstRound = true;
 //keeps track of the dealers face down card 
 var hidden; 
 var hiddenVal; 
+
+var secondImg; 
 
 //number of decks in the shoe
 var numOfDecks;
@@ -28,9 +31,13 @@ var remaining;
 
 //when the user chooses to stay 
 var stayButtonPressed = false; 
+var canDouble = true; 
+var canDoubleBottom = true; 
+var splitting = false; 
 
 //allows the player to hit while playerSum <= 21 
 var canHit = true; 
+var canHitBottom = true; 
 
 
 //accounts for how much money the player has and the current bet 
@@ -82,9 +89,6 @@ function flipStrat(){
         switchStyles("borderblocks","color","black"); 
         switchStyles("split","background-color","lightblue"); 
         switchStyles("split","color","black"); 
-
-
-
 
     } else {
         console.log("nah it's not"); 
@@ -238,6 +242,8 @@ function placeBet(){
         startGame();
     } else {
         nexthand()
+        canDouble = true; 
+        canDoubleBottom = true; 
     }
     
 }
@@ -279,6 +285,9 @@ function startGame(){
 
         //adds image tag to your-cards div 
         document.getElementById("your-cards").append(cardImg); 
+        if(i == 1){
+            secondImg = card; 
+        }
     }
 
     //tries to reduce the players sum if over 21 
@@ -295,6 +304,8 @@ function startGame(){
     //console.log("BEFORE CHECKS OF BUTTONS"); 
     //checks for any of the buttons being pressed 
     document.getElementById("hitbut").addEventListener("click",hit); 
+    document.getElementById("double-down").addEventListener("click",double); 
+    document.getElementById("splitIt").addEventListener("click",split); 
     document.getElementById("staybut").addEventListener("click",stay); 
     document.getElementById("new-menu").addEventListener('click',menu);
     document.getElementById("next-hand").addEventListener('click',bettingTime);
@@ -368,10 +379,13 @@ function nexthand(){
         //wipes the current cards on the screen
         clearBox("dealer-cards");
         clearBox("your-cards"); 
+        clearBox("split-cards"); 
 
         //wipes the scores and winner
         clearBox("deal-sum"); 
         clearBox("your-sum"); 
+        clearBox("split-sum"); 
+        document.getElementById("split-cards-title").style.display = "none"; 
 
         //update the W/L 
         displaySums("dubs",playerWin); 
@@ -388,11 +402,15 @@ function nexthand(){
         dealerAceCount = 0; 
         dealerSum =0; 
         canHit = true; 
+        canHitBottom = true; 
 
         //set src for image tag: <img src="./cards/4-c.png">
         cardImg.src  = "./images/cards/BACK.png";
         cardImg.id = "hidden"; 
         document.getElementById("dealer-cards").append(cardImg);
+
+        // readds the split button 
+        document.getElementById("splitIt").style.display = "initial";  
 
         //starts a new game 
         startGame(); 
@@ -476,8 +494,13 @@ function menu (){
 //user wants no more cards 
 function stay(){
 
-    if(!stayButtonPressed){   
+    if(splitting){
+        console.log("found the split"); 
+        testingCode(); 
+    }
 
+    else if(!stayButtonPressed){   
+        console.log("Starting to stay"); 
         dealersTurn(); 
 
         //don't the user get any more cards 
@@ -571,6 +594,76 @@ function displaySums(id, text){
     document.getElementById(id).innerText = text; 
 }
 
+function split(){
+    //mark that we are spliting
+    console.log(splitting); 
+    splitting = true; 
+    console.log(splitting); 
+
+    //don't let the user split twice and show split count title
+    document.getElementById("splitIt").style.display = "none"; //remove button
+    document.getElementById("split-cards-title").style.display = "initial"; 
+
+    //gets the value from the first split and create the image
+    splitSum = getValue(secondImg); 
+    let newImg = document.createElement("img"); 
+    newImg.src = "./images/cards/"+ secondImg + ".png"; 
+
+    //remove the card from the top row
+    const myDiv = document.getElementById('your-cards'); // Replace 'yourDivId' with the actual ID of your div
+    if (myDiv.lastElementChild) {
+        myDiv.removeChild(myDiv.lastElementChild);
+    }
+
+    //update top row count and split-cards count
+    playerSum -= splitSum; 
+    displaySums("your-sum",playerSum); 
+    displaySums("split-sum",splitSum);
+    document.getElementById("split-cards").append(newImg); 
+
+    //give top hand a second card & let the user play on the first hand 
+    hit(); 
+
+    // document.getElementById("double-down").addEventListener("click",testingCode); 
+    // document.getElementById("staybut").addEventListener("click",testingCode); 
+    // when they click stay, let them play the second hand 
+
+}
+
+function testingCode(){
+    console.log("THIS IS MY TEST YAKNOW!"); 
+
+    //give the bottom hand a second card 
+    hitBottom(); 
+
+}
+
+function double(){
+    //if this is a valid double
+    if(canDouble && bankroll - curBet >= 0){
+        //update bankroll and bet amount
+        bankroll -= curBet; 
+        curBet += curBet; 
+        displaySums("bankroll", bankroll); 
+        displaySums("usersbet", curBet);
+        hit(); 
+        stay(); 
+    }
+
+}
+function doubleBottom(){
+    //if this is a valid double
+    if(canDoubleBottom && bankroll - curBet >= 0){
+        //update bankroll and bet amount
+        bankroll -= curBet; 
+        curBet += curBet; 
+        displaySums("bankroll", bankroll); 
+        displaySums("usersbet", curBet);
+        hit(); 
+        stay(); 
+    }
+
+}
 //when a user requests another card, check if they can hit then provide card 
 function hit(){
 
@@ -580,10 +673,11 @@ function hit(){
         return; 
     }
 
+    //make sure they can't double after the first hit
+    canDouble = false; 
+
     //create an image tag 
     let cardImg = document.createElement("img"); 
-
-    console.log("THIS IS WHERE I'M GOING WRONG"); 
     
     //get a card from the deck 
     let card = shoe.pop(); 
@@ -610,6 +704,52 @@ function hit(){
 
     // displays the players sum 
     displaySums("your-sum",playerSum); 
+
+    remaining -= 1; 
+    //updates the amount of cards showing as displayed
+    displaySums("remaining",remaining); 
+}
+
+//when a user requests another card, check if they can hit then provide card 
+function hitBottom(){
+
+    //if the user can't hit return, otherwise give player a new card 
+    if(!canHitBottom){
+        // console.log("YOU CAN'T HIT");
+        return; 
+    }
+
+    //make sure they can't double after the first hit
+    canDoubleBottom = false; 
+
+    //create an image tag 
+    let cardImg = document.createElement("img"); 
+    
+    //get a card from the deck 
+    let card = shoe.pop(); 
+
+    //set src for image tag: <img src="./cards/4-c.png">
+    cardImg.src = "./images/cards/" + card + ".png"; 
+
+    //increment player's Sum and running count
+    var cardVal = getValue(card);
+    splitSum += cardVal; 
+    runningCount += count(cardVal);
+    displaySums("theCount",runningCount); 
+
+    //increment ace count
+    playerAceCount += checkAce(card); 
+
+    //adds image tag to dealer-cards div 
+    document.getElementById("split-cards").append(cardImg); 
+
+    if(reduceAce()>=21){
+        canHitBottom = false; 
+        stay();
+    }
+
+    // displays the players sum 
+    displaySums("split-sum",splitSum); 
 
     remaining -= 1; 
     //updates the amount of cards showing as displayed
@@ -660,15 +800,12 @@ function checkAce(card){
     return 0; 
 }
 
-//NEED TO FIX OUT OF CARDS BUG WITH MULTIPLE DECKS
-
 // auto new deck when running out of cards 
+
+// 21 is broken on first hand when splitting (not able to hit/double/stay)
+// able to split after hitting the first time 
+
 //1. create the settings menu to show count, # of hands, & # of decks 
-    //implement mutable deck number
-    //implement implement mutable multiple decks 
-    //implement a running count feature
 //2. want to add a feature to play multiple hands 
     //when playing with multiple decks make cards overlap 
-//3. add betting: 1,5,10 increments (player starts with $100 / Starting money amount)
-    //add a cash out feature 
-//4. use cookies to save game progress. 
+//3. use cookies to save game progress. 
