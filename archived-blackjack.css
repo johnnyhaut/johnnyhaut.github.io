@@ -1,0 +1,345 @@
+/* website colors and styles*/
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth !important;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overscroll-behavior-x: none;
+    overflow: hidden;
+}
+
+/* ROW AND COLUMN STYLES */
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.secColumn {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+}
+
+#firstColumn {
+    width: 16%;
+}
+
+
+#main-count {
+    background-color: rgb(141,221,141);
+    color: rgb(141,221,141);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#main-count:hover {
+    background-color: white; 
+    color: black;
+
+}
+
+#secondColumn {
+    width: 50.667%;
+    text-align: center;
+}
+
+#thirdColumn {
+    width: 33.333%;
+    padding: none;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    height: 8%; 
+    padding-left: 10px;
+    /* background-color: rgb(86, 164, 31); */
+}
+
+#firstRow {
+    height: 88%;
+}
+#bottomRow {
+    background-color:rgb(86, 164, 31);
+    background-color: rgb(141,221,141);
+    padding-left: 10rem;
+    border-top:3px solid rgb(141,221,141);
+    height: 4%;
+}
+
+/* MIDDLE COLUMN STYLES: The-Game*/
+.the-game {
+    display: none; 
+}
+.the-game h2 {
+    text-align: center;
+}
+
+#dealer-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#your-cards img {
+    height: 175px; 
+    width: 125px; 
+    margin: 1px;
+}
+
+/* THE BLACKJACK BUTTONS ON THE SCREEN */
+#new-menu { /*MENU BUTTON */ 
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#placeBet { 
+    width: 125px; 
+    height: 50px;
+    font-size: 20px;
+    align-items: center;
+}
+
+#incBet, #incBet10, #incBet25, #incBet50, #decBet, #decBet10, #decBet25, #decBet50, #staybut, #hitbut{
+    width: 100px;
+    height: 50px; 
+    font-size: 20px;
+    margin: .5rem;
+}
+
+#maxBet {
+    width: 110px; 
+    height: 50px; 
+    margin: .5rem;
+    font-size: 20px;
+}
+
+#next-hand {
+    text-wrap: nowrap;
+    width: 110px; 
+    height: 50px; 
+    font-size: 20px; 
+    margin: .5rem;
+}
+
+/* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
+
+
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 1px;
+    background-color: rgb(141,221,141);
+    color: rgb(141,221,141);
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* THIS IS NEW CODE */
+#stratTable th {
+    color: black;
+}
+
+#stratTable #hit {
+    background-color: yellow;
+}
+#stratTable #stay {
+    background-color: lightgreen;
+}
+#stratTable #double {
+    background-color: red;
+}
+
+#stratTable #split {
+    background-color: lightblue;
+}
+
+#stratTable #borderBlocks {
+    background-color: grey;
+}
+
+#stratTable table {
+    background-color: black;
+}
+/* THIS IS THE NORMAL CODE  */
+#stratTable:hover th {
+    background-color: inherit;
+    color: black;
+}
+
+#stratTable:hover #hit {
+    background-color: yellow;
+}
+#stratTable:hover #stay {
+    background-color: lightgreen;
+}
+#stratTable:hover #double {
+    background-color: red;
+}
+
+#stratTable:hover #split {
+    background-color: lightblue;
+}
+
+#stratTable:hover #borderBlocks {
+    background-color: grey;
+}
+
+#stratTable:hover table {
+    background-color: black;
+}
+#stratTable {
+    border-collapse: collapse;
+    width: 100%;
+    height: 97%;
+}
+/* NAV BAR */
+.headings{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #24262b;
+    max-height: 185px;
+    box-sizing: border-box;
+}
+
+nav{
+    gap: 5rem;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: gold;
+    text-decoration: underline;
+}
+
+/* Main Menu Settings */
+
+#main-menu {
+    display: flex;
+    position: absolute; 
+    padding-top: 10%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background {
+    /* Optional: Add some border or styling */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+.menu-buttons {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+
+#start, #settings {
+    width: 100px;
+    height: 50px;
+    margin: 1rem;
+}
+
+#settings-model {
+    border: 2px solid black;
+    display:none;
+}
+
+#settings-model h1 {
+    text-decoration: underline;
+}
+
+.settings-menu {
+    background-color: grey;
+    padding: 1rem;
+    padding-top: 2px;
+}
+.settings-menu input {
+    width: 100px;
+    height: 25px;
+    outline: 1px solid black;
+}
+
+#startDeckz{
+    padding-right: 50px;
+}
+#startMonz {
+    padding-right: 66px;
+}
+
+.closer-box {
+    float: right;
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+/* This is for my switches */
+
+.switch-container {
+    display: flex;
+    align-items: center;
+}
+
+.switch-container input {
+    position: relative;
+    width: 50px; 
+    height: 30px; 
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+}
+
+.switch-container input::after {
+    content: ''; 
+    position: absolute; 
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    height: 1.25rem; 
+    width: 1.25rem;
+    background-color: rgb(255,255,255);
+    transition: left .3s;
+}
+
+.switch-container input:checked {
+    background-color: rgb(141,221,141);
+}
+
+.switch-container input:checked::after {
+    left: 70%; 
+}
