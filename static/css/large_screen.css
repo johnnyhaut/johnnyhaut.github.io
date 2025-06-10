@@ -1,0 +1,589 @@
+/* website colors and styles*/
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth !important;
+    overscroll-behavior: none;
+    overflow: none;
+    padding: 0;
+
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100vw;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 100vw;
+    margin: auto;
+}
+
+.section-container {
+    max-width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    /* padding: 2.5rem; */
+    color: white;
+}
+
+.section-container:nth-of-type(even) {
+    background-color: gold;
+    color: black;
+}
+
+/* NAV BAR */
+.headings {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #24262b;
+    max-height: 185px;
+    box-sizing: border-box;
+}
+
+nav {
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ul {
+        float: right;
+    }
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+/** INTRODUCTION SECTION */
+
+.intro {
+    /* padding: 2rem; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro ul a {
+    display: block;
+    padding: 0 0 0 0;
+    text-decoration: none;
+}
+
+.intro img {
+    width: 345px;
+    height: 345px;
+    border-radius: 50%;
+    border: 5px solid gold;
+    margin: 5% 0px 5% 0px;
+    float: right;
+
+}
+
+.description {
+    /* padding-top: 2.5rem; */
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    justify-content: center;
+    font-size: 2rem;
+    padding-left: 8%;
+    padding-right: 5rem;
+}
+
+.description a {
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 40px;
+    color: #ffd500;
+}
+
+.description a:hover {
+    color: red;
+}
+
+.home_name {
+    padding: 25px 0;
+    font-size: 50px;
+}
+
+.name {
+    color: gold;
+    font-style: normal;
+}
+
+/** FOOTER SECTION */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+    height: auto;
+    padding-left: 110px;
+}
+
+.footer-col {
+    width: 25%;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: gold;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/** THIS IS COURSES.HTML */
+
+#rcorners1 {
+    color: #24262b;
+    z-index: 1;
+    float: left;
+    border-radius: 25px;
+    margin: 1%;
+    background: gold;
+    width: 20%;
+    height: 50rem;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 35px;
+    padding-top: 2rem;
+    font-weight: bold;
+    color: #e91e63;
+    text-decoration: underline;
+}
+
+.courses {
+    padding: 1rem;
+}
+
+.courses h3 {
+    text-align: left;
+}
+
+
+
+/* ROW AND COLUMN STYLES */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.secColumn {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+}
+
+#firstColumn {
+    width: 16%;
+}
+
+#main-count {
+    background-color: rgb(141, 221, 141);
+    color: rgb(141, 221, 141);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#main-count:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+#secondColumn {
+    width: 58.667%;
+    text-align: center;
+}
+
+#thirdColumn {
+    width: 25.333%;
+    padding: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    height: 8%;
+    padding-left: 10px;
+    gap: 36%;
+    /* background-color: rgb(86, 164, 31); */
+}
+
+#firstRow {
+    height: 88%;
+}
+
+#bottomRow {
+    background-color: rgb(86, 164, 31);
+    background-color: rgb(141, 221, 141);
+    padding-left: 10rem;
+    border-top: 3px solid rgb(141, 221, 141);
+    height: 4%;
+}
+
+/* MIDDLE COLUMN STYLES: The-Game*/
+.the-game {
+    display: none;
+}
+
+.the-game h2 {
+    text-align: center;
+}
+
+#dealer-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#your-cards img,
+#split-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#split-cards-title {
+    display: none;
+}
+
+/* THE BLACKJACK BUTTONS ON THE SCREEN */
+#new-menu {
+    /*MENU BUTTON */
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#placeBet {
+    width: 125px;
+    height: 50px;
+    font-size: 20px;
+    align-items: center;
+}
+
+#incBet,
+#incBet10,
+#incBet25,
+#incBet50,
+#decBet,
+#decBet10,
+#decBet25,
+#decBet50,
+#staybut,
+#hitbut,
+#splitIt,
+#double-down {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    margin: .5rem;
+}
+
+#maxBet {
+    width: 110px;
+    height: 50px;
+    margin: .5rem;
+    font-size: 20px;
+}
+
+#next-hand {
+    text-wrap: nowrap;
+    width: 110px;
+    height: 50px;
+    font-size: 20px;
+    margin: .5rem;
+}
+
+/* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
+
+
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 1px;
+    background-color: rgb(141, 221, 141);
+    color: rgb(141, 221, 141);
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* THIS IS NEW CODE */
+#stratTable th {
+    /* color: black; */
+}
+
+#stratTable .hit {
+    /* background-color: yellow; */
+}
+
+#stratTable .stay {
+    background-color: rgb(141, 221, 141);
+}
+
+#stratTable .double {
+    /* background-color: red; */
+}
+
+#stratTable .split {
+    /* background-color: lightblue; */
+}
+
+#stratTable .borderBlocks {
+    /* background-color: grey; */
+}
+
+#stratTable table {
+    background-color: black;
+}
+
+/* THIS IS THE NORMAL CODE  */
+#stratTable:hover th {
+    background-color: inherit;
+    color: black !important;
+}
+
+#stratTable:hover .hit {
+    background-color: yellow !important;
+}
+
+#stratTable:hover .stay {
+    background-color: rgb(141, 221, 141) !important;
+}
+
+#stratTable:hover .double {
+    background-color: red !important;
+}
+
+#stratTable:hover .split {
+    background-color: lightblue !important;
+}
+
+#stratTable:hover .borderBlocks {
+    background-color: grey !important;
+}
+
+#stratTable:hover table {
+    background-color: black;
+}
+
+#stratTable {
+    border-collapse: collapse;
+    width: 100%;
+    height: 97%;
+}
+
+.basic-strategy {
+    margin-right: 10px;
+}
+
+/* NAV BAR */
+
+#update-soon-screen {
+    height: 650px;
+    width: 100%;
+}
+
+
+/* Main Menu Settings */
+
+#main-menu {
+    display: flex;
+    position: absolute;
+    padding-top: 10%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background {
+    /* Optional: Add some border or styling */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.menu-buttons {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+
+#start,
+#settings {
+    width: 100px;
+    height: 50px;
+    margin: 1rem;
+}
+
+#settings-model {
+    border: 2px solid black;
+    display: none;
+}
+
+#settings-model h1 {
+    text-decoration: underline;
+}
+
+.settings-menu {
+    background-color: grey;
+    padding: 1rem;
+    padding-top: 2px;
+}
+
+.settings-menu input {
+    width: 100px;
+    height: 25px;
+    outline: 1px solid black;
+}
+
+#startDeckz {
+    padding-right: 50px;
+}
+
+#startMonz {
+    padding-right: 66px;
+}
+
+.closer-box {
+    float: right;
+    width: 20px;
+    height: 20px;
+    background-color: grey;
+}
+
+.closer {
+    width: 6px;
+}
+
+/* This is for my switches */
+
+.switchin-container {
+    display: flex;
+    align-items: center;
+}
+
+.switchin-container input {
+    /* THIS IS USEFUL! DO NOT REMOVE! */
+    -webkit-appearance: none;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
+}
+
+.switchin-container input::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: rgb(255, 255, 255);
+    transition: left .3s;
+}
+
+.switchin-container input:checked {
+    background-color: rgb(141, 221, 141);
+}
+
+.switchin-container input:checked::after {
+    left: 70%;
+}

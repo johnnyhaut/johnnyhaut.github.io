@@ -4,6 +4,8 @@
     font-family: sans-serif;
     scroll-behavior: smooth !important;
     padding: 0;
+    overscroll-behavior: none;
+    overflow: none;
 }
 
 body {
