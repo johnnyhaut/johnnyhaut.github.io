@@ -233,13 +233,12 @@ ul {
     margin: 1%;
     background: gold;
     width: 20%;
-    height: 50rem;
     text-align: center;
 }
 
 .courses h2 {
     font-size: 35px;
-    padding-top: 2rem;
+    margin-top: 0rem;
     font-weight: bold;
     color: #e91e63;
     text-decoration: underline;
@@ -465,6 +464,7 @@ th {
     border-collapse: collapse;
     width: 100%;
     height: 97%;
+    font-size: 10px;
 }
 
 .basic-strategy {
@@ -556,12 +556,12 @@ th {
 
 /* This is for my switches */
 
-.switchin-container {
+.switchin-container, .switchin-container2 {
     display: flex;
     align-items: center;
 }
 
-.switchin-container input {
+.switchin-container input, .switchin-container2 input {
     /* THIS IS USEFUL! DO NOT REMOVE! */
     -webkit-appearance: none;
     position: relative;
@@ -574,7 +574,7 @@ th {
     cursor: pointer;
 }
 
-.switchin-container input::after {
+.switchin-container input::after, .switchin-container2 input::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -587,10 +587,10 @@ th {
     transition: left .3s;
 }
 
-.switchin-container input:checked {
+.switchin-container input:checked, .switchin-container2 input:checked {
     background-color: rgb(141, 221, 141);
 }
 
-.switchin-container input:checked::after {
+.switchin-container input:checked::after, .switchin-container2 input:checked::after {
     left: 70%;
 }
