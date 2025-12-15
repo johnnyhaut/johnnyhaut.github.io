@@ -225,10 +225,11 @@ ul {
     z-index: 1;
     float: left;
     border-radius: 25px;
-    margin: 1%;
+    margin: 3% 2% 5% 3%;
     background: gold;
     width: 20%;
     text-align: center;
+    height: 500px;
 }
 
 .courses h2 {

@@ -1,3 +1,5 @@
+window.addEventListener("load", setup);
+
 //tracks win counts 
 var dealerWin =0; 
 var playerWin =0; 
@@ -50,28 +52,71 @@ var curBet = dBet;
 
 
 //upon starting the website 
-window.onload = function() {
+async function setup() {
     
     //pull the deckNum and playerBankroll, build then shuffle deck
     prepareForGame(); 
-    
-    //wait for user to place their bet 
-    document.getElementById("incBet").addEventListener("click", function(){incBet(5)});
-    document.getElementById("decBet").addEventListener("click", function(){decBet(5)});
-    document.getElementById("incBet10").addEventListener("click", function(){incBet(10)});
-    document.getElementById("decBet10").addEventListener("click", function(){decBet(10)});
-    document.getElementById("incBet25").addEventListener("click", function(){incBet(25)});
-    document.getElementById("decBet25").addEventListener("click", function(){decBet(25)});
-    document.getElementById("incBet50").addEventListener("click", function(){incBet(50)});
-    document.getElementById("decBet50").addEventListener("click", function(){decBet(50)});
 
-    document.getElementById("maxBet").addEventListener("click", maxBet); 
-    document.getElementById("new-menu").addEventListener('click',menu);
-    document.getElementById("countBut").addEventListener("click",flipCount); 
-    document.getElementById("stratBut").addEventListener("click",flipStrat); 
-    document.getElementById("placeBet").addEventListener("click", placeBet); 
+    //create the dom references and event listeners 
+    create_DOM_references();
+    add_event_listeners();
+    
+}
+
+function create_DOM_references(){
+
+     //wait for user to place their bet 
+    button_incBet = document.getElementById("incBet");
+    button_decBet = document.getElementById("decBet");
+    button_incBet10 = document.getElementById("incBet10");
+    button_decBet10 = document.getElementById("decBet10");
+    button_incBet25 = document.getElementById("incBet25");
+    button_decBet25 = document.getElementById("decBet25");
+    button_incBet50 = document.getElementById("incBet50");
+    button_decBet50 = document.getElementById("decBet50");
+    button_maxBet= document.getElementById("maxBet");
+    button_menu = document.getElementById("new-menu");
+    button_count = document.getElementById("countBut");
+    button_strat = document.getElementById("stratBut");
+    button_placeBet = document.getElementById("placeBet");
+
+    //checks for any of the buttons being pressed 
+    button_hit = document.getElementById("hitbut").addEventListener("click",hit); 
+    button_double = document.getElementById("double-down").addEventListener("click",double); 
+    button_split = document.getElementById("splitIt").addEventListener("click",split); 
+    button_stay = document.getElementById("staybut").addEventListener("click",stay); 
+    button_timeToBet = document.getElementById("next-hand").addEventListener('click',bettingTime);
+    button_incCount = document.getElementById("inCount").addEventListener("click",incrementCount);
+    button_decCount = document.getElementById("deCount").addEventListener("click",decrementCount);
 
 }
+
+function add_event_listeners(){
+     //wait for user to place their bet 
+    button_incBet.addEventListener("click", function(){incBet(5)});
+    button_decBet.addEventListener("click", function(){decBet(5)});
+    button_incBet10.addEventListener("click", function(){incBet(10)});
+    button_decBet10.addEventListener("click", function(){decBet(10)});
+    button_incBet25.addEventListener("click", function(){incBet(25)});
+    button_decBet25.addEventListener("click", function(){decBet(25)});
+    button_incBet50.addEventListener("click", function(){incBet(50)});
+    button_decBet50.addEventListener("click", function(){decBet(50)});
+    button_maxBet.addEventListener("click", maxBet); 
+    button_menu.addEventListener('click',menu);
+    button_count.addEventListener("click",flipCount); 
+    button_strat.addEventListener("click",flipStrat); 
+    button_placeBet.addEventListener("click", placeBet); 
+
+    //checks for any of the buttons being pressed 
+    button_hit.addEventListener("click",hit); 
+    button_double.addEventListener("click",double); 
+    button_split.addEventListener("click",split); 
+    button_stay.addEventListener("click",stay); 
+    button_timeToBet.addEventListener('click',bettingTime);
+    button_incCount.addEventListener("click",incrementCount);
+    button_decCount.addEventListener("click",decrementCount);
+}
+
 
 function flipStrat(){
     console.log("I'm flipping the strategy"); 
@@ -300,16 +345,7 @@ function startGame(){
     displaySums("your-sum",playerSum);
     displaySums("deal-sum",dealerSum);
 
-    //console.log("BEFORE CHECKS OF BUTTONS"); 
-    //checks for any of the buttons being pressed 
-    document.getElementById("hitbut").addEventListener("click",hit); 
-    document.getElementById("double-down").addEventListener("click",double); 
-    document.getElementById("splitIt").addEventListener("click",split); 
-    document.getElementById("staybut").addEventListener("click",stay); 
-    document.getElementById("new-menu").addEventListener('click',menu);
-    document.getElementById("next-hand").addEventListener('click',bettingTime);
-    document.getElementById("inCount").addEventListener("click",incrementCount);
-    document.getElementById("deCount").addEventListener("click",decrementCount);
+
 }
 
 
@@ -587,6 +623,7 @@ function stay(){
 
 // displays the text in the id provided
 function displaySums(id, text){
+    document.getElementById(id).innerHTML = ""; 
     document.getElementById(id).innerText = text; 
 }
 
@@ -810,3 +847,5 @@ function checkAce(card){
 //2. want to add a feature to play multiple hands 
     //when playing with multiple decks make cards overlap 
 //3. use cookies to save game progress. 
+//4. Amount of Money Won/Lost on Double down is broken: 'Current Bet: 10001000'
+
