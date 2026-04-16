@@ -1,296 +1,312 @@
-/* website colors and styles*/
-* {
+/* =============================================
+   BASE RESET & GLOBAL
+   ============================================= */
+
+*, *::before, *::after {
     box-sizing: border-box;
-    font-family: sans-serif;
-    scroll-behavior: smooth !important;
-    overscroll-behavior: none;
-    overflow: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
-    overflow-x: hidden;
-    margin: 0;
-    display: inline-block;
     width: 100%;
-    box-sizing: border-box;
     height: 100%;
-    line-height: 1.5;
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #111;
+    color: #fff;
 }
 
 .container {
-    max-width: 100%;
-    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
+/* =============================================
+   SECTION CONTAINERS
+   ============================================= */
+
 .section-container {
-    max-width: 100vw;
-    background-color: black;
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* padding: 2.5rem; */
-    color: white;
+    background-color: #111;
+    color: #fff;
 }
 
 .section-container:nth-of-type(even) {
-    background-color: gold;
-    color: black;
+    background-color: #ffd700;
+    color: #111;
 }
 
-/* NAV BAR */
+/* =============================================
+   NAVBAR
+   ============================================= */
+
 .headings {
-    padding: 1px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #24262b;
-    max-height: 185px;
-    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #1a1c21;
+    border-bottom: 2px solid #ffd700;
 }
 
 nav {
-    /* gap: 10rem; */
-    margin: 10px;
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    ul {
-        float: right;
-    }
+    padding: 0 2rem;
+    height: 100px;
 }
 
-nav ul li {
-    display: inline-block;
+nav a#logo,
+nav a img#logo {
+    display: block;
+    height: 150px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     list-style: none;
-    margin: 10px 20px;
+    margin-left: auto;
 }
 
 nav ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
     text-decoration: none;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 nav ul li a:hover {
-    color: gold;
-    text-decoration: underline;
+    background-color: #ffd700;
+    color: #111;
 }
 
-#logo {
-    height: 150px;
-}
+/* =============================================
+   INTRO / HERO SECTION
+   ============================================= */
 
-/** INTRODUCTION SECTION */
+#kachow {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+}
 
 .intro {
-    padding: 2rem;
-    height: auto;
-    text-align: center;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    gap: 5rem;
+    padding: 9rem 0 9rem 0;
+    max-width: 1200px;
+    margin: 0 50px 0 50px;
+    width: 100%;
 }
 
-.intro ul a {
-    display: block;
-    padding: 0 0 0 0;
-    text-decoration: none;
-}
-
-.intro img {
-    margin: 5% 0px 5% 0px;
-    width: 345px;
-    height: 345px;
+.intro img.selfie {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    border: 5px solid gold;
-    float: right;
+    border: 4px solid #ffd700;
+    object-fit: cover;
+    flex-shrink: 0;
+    object-position: center 10%
 }
 
 .description {
-    /* padding-top: 2.5rem; */
-    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    margin-left: 0px;
-    justify-content: center;
-    font-size: 20px;
-    padding-left: 8%;
-    padding-right: 5rem;
-}
-
-.description a {
-    margin-top: 2rem;
-    text-decoration: none;
-    font-size: 30px;
-    color: #ffd500;
-}
-
-.description a:hover {
-    color: red;
+    gap: 1rem;
+    font-size: 1.1rem;
 }
 
 .home_name {
-    padding: 25px 0;
-    font-size: 50px;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .name {
-    color: gold;
+    color: #ffd700;
     font-style: normal;
 }
 
-/** FOOTER SECTION */
-.row {
-    display: flex;
-    flex-wrap: wrap;
+.description a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background-color: #ffd700;
+    color: #111;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    width: fit-content;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-ul {
-    list-style: none;
+.description a:hover {
+    background-color: #fff;
+    color: #111;
 }
+
+/* =============================================
+   FOOTER
+   ============================================= */
 
 .footer {
-    background-color: #24262b;
-    padding: 70px 0;
-    height: auto;
-    padding-left: 10px;
+    background-color: #1a1c21;
+    padding: 4rem 2rem;
+    border-top: 2px solid #ffd700;
+}
+
+.footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-col {
-    width: 25%;
+    flex: 1 1 180px;
 }
 
 .footer-col h4 {
-    font-size: 18px;
-    color: #ffffff;
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 500;
-    position: relative;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-.footer-col h4::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    background-color: #e91e63;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
-}
-
-.footer-col ul li:not(:last-child) {
-    margin-bottom: 10px;
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .footer-col ul li a {
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #ffffff;
+    font-size: 0.9rem;
+    color: #aaa;
     text-decoration: none;
-    font-weight: 300;
-    color: #bbbbbb;
-    display: block;
-    transition: all 0.3s ease;
+    transition: color 0.2s, padding-left 0.2s;
 }
 
 .footer-col ul li a:hover {
-    color: gold;
-    padding-left: 8px;
+    color: #ffd700;
+    padding-left: 6px;
+}
+
+.footer-col .social-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .footer-col .social-links a {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    color: #ffffff;
-    transition: all 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .footer-col .social-links a:hover {
-    color: #24262b;
-    background-color: #ffffff;
+    background-color: #ffd700;
+    color: #111;
 }
 
-/** THIS IS COURSES.HTML */
+/* =============================================
+   COURSES PAGE
+   ============================================= */
 
-#rcorners1 {
-    color: #24262b;
-    z-index: 1;
-    float: left;
-    border-radius: 25px;
-    margin: 1%;
-    background: gold;
-    width: 20%;
-    text-align: center;
+.courses {
+    padding: 2rem;
 }
 
 .courses h2 {
-    font-size: 35px;
-    margin-top: 0rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 700;
     color: #e91e63;
     text-decoration: underline;
-}
-
-.courses {
-    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .courses h3 {
     text-align: left;
 }
 
+#rcorners1 {
+    float: left;
+    border-radius: 16px;
+    margin: 3% 2% 5% 3%;
+    background: #ffd700;
+    color: #1a1c21;
+    width: 20%;
+    text-align: center;
+    height: 500px;
+    padding: 1rem;
+}
 
+/* =============================================
+   LAYOUT UTILITIES
+   ============================================= */
 
-/* ROW AND COLUMN STYLES */
-.row:after {
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.row::after {
     content: "";
     display: table;
     clear: both;
 }
 
-.secColumn {
-    float: left;
-    width: 33.333%;
-    padding: 10px;
-}
+.secColumn { float: left; width: 33.333%; padding: 10px; }
+#firstColumn { width: 16%; }
+#secondColumn { width: 58.667%; text-align: center; }
+#thirdColumn { width: 25.333%; }
 
-#firstColumn {
-    width: 16%;
-}
+#firstRow { height: 88%; }
 
-#main-count {
-    background-color: rgb(141, 221, 141);
-    color: rgb(141, 221, 141);
-    transition: background-color 0.3s ease-in-out;
-}
-
-#main-count:hover {
-    background-color: white !important;
-    color: black !important;
-}
-
-#secondColumn {
-    width: 58.667%;
-    text-align: center;
-}
-
-#thirdColumn {
-    width: 25.333%;
-    float: right;
-    padding: none;
+#bottomRow {
+    background-color: #1a1c21;
+    padding-left: 10rem;
+    border-top: 3px solid #1a1c21;
+    height: 4%;
 }
 
 .menu {
@@ -298,38 +314,17 @@ ul {
     align-items: center;
     height: 8%;
     padding-left: 10px;
-    gap: 31%;
-    /* background-color: rgb(86, 164, 31); */
+    gap: 36%;
 }
 
-#firstRow {
-    height: 88%;
-}
+/* =============================================
+   BLACKJACK GAME
+   ============================================= */
 
-#bottomRow {
-    background-color: rgb(86, 164, 31);
-    background-color: rgb(141, 221, 141);
-    padding-left: 10rem;
-    border-top: 3px solid rgb(141, 221, 141);
-    height: 4%;
-    width: 100%;
-}
+.the-game { display: none; }
+.the-game h2 { text-align: center; }
 
-/* MIDDLE COLUMN STYLES: The-Game*/
-.the-game {
-    display: none;
-}
-
-.the-game h2 {
-    text-align: center;
-}
-
-#dealer-cards img {
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-}
-
+#dealer-cards img,
 #your-cards img,
 #split-cards img {
     height: 175px;
@@ -337,166 +332,99 @@ ul {
     margin: 1px;
 }
 
-#split-cards-title {
-    display: none;
-}
+#split-cards-title { display: none; }
 
-/* THE BLACKJACK BUTTONS ON THE SCREEN */
-#new-menu {
-    /*MENU BUTTON */
-    width: 125px;
-    height: 50px;
-    font-size: 20px;
-}
-
+#new-menu,
 #placeBet {
     width: 125px;
     height: 50px;
     font-size: 20px;
-    align-items: center;
+    background-color: #ffd700;
 }
 
-#incBet,
-#incBet10,
-#incBet25,
-#incBet50,
-#decBet,
-#decBet10,
-#decBet25,
-#decBet50,
-#staybut,
-#hitbut,
-#splitIt,
-#double-down {
+#incBet, #incBet10, #incBet25, #incBet50,
+#decBet, #decBet10, #decBet25, #decBet50,
+#staybut, #hitbut, #splitIt, #double-down {
     width: 100px;
     height: 50px;
     font-size: 20px;
-    margin: .5rem;
+    margin: 0.5rem;
+    background-color: #ffd700;
 }
-
-#maxBet {
-    width: 110px;
-    height: 50px;
-    margin: .5rem;
-    font-size: 20px;
+#deCount, #inCount {
+    background-color: #ffd700;
+    padding: 3px;
 }
-
-#next-hand {
-    text-wrap: nowrap;
+#maxBet, #next-hand {
     width: 110px;
     height: 50px;
     font-size: 20px;
-    margin: .5rem;
+    margin: 0.5rem;
+    background-color: #ffd700;
+
 }
 
-/* THIS IS THE THIRD SECTION, JUST FOR THE TABLE */
+#next-hand { white-space: nowrap; }
 
-
-th {
-    border: 1px solid black;
-    text-align: center;
-    padding: 1px;
-    background-color: rgb(141, 221, 141);
-    color: rgb(141, 221, 141);
-    transition: background-color 0.3s ease-in-out;
-}
-
-/* THIS IS NEW CODE */
-#stratTable th {
-    /* color: black; */
-}
-
-#stratTable .hit {
-    /* background-color: yellow; */
-}
-
-#stratTable .stay {
-    background-color: rgb(141, 221, 141);
-}
-
-#stratTable .double {
-    /* background-color: red; */
-}
-
-#stratTable .split {
-    /* background-color: lightblue; */
-}
-
-#stratTable .borderBlocks {
-    /* background-color: grey; */
-}
-
-#stratTable table {
-    background-color: black;
-}
-
-/* THIS IS THE NORMAL CODE  */
-#stratTable:hover th {
-    background-color: inherit;
-    color: black !important;
-}
-
-#stratTable:hover .hit {
-    background-color: yellow !important;
-}
-
-#stratTable:hover .stay {
-    background-color: rgb(141, 221, 141) !important;
-}
-
-#stratTable:hover .double {
-    background-color: red !important;
-}
-
-#stratTable:hover .split {
-    background-color: lightblue !important;
-}
-
-#stratTable:hover .borderBlocks {
-    background-color: grey !important;
-}
-
-#stratTable:hover table {
-    background-color: black;
-}
+/* =============================================
+   STRATEGY TABLE
+   ============================================= */
 
 #stratTable {
     border-collapse: collapse;
     width: 100%;
     height: 97%;
-    font-size: 10px;
 }
 
-.basic-strategy {
-    margin-right: 10px;
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 2px;
+    background-color: #1a1c21;
+    color: #1a1c21;
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* NAV BAR */
+#stratTable table { background-color: black; }
+
+#stratTable:hover th         { background-color: inherit; color: black !important; }
+#stratTable:hover .hit       { background-color: yellow !important; }
+#stratTable:hover .stay      { background-color: rgb(141, 221, 141) !important; }
+#stratTable:hover .double    { background-color: red !important; }
+#stratTable:hover .split     { background-color: lightblue !important; }
+#stratTable:hover .borderBlocks { background-color: grey !important; }
+
+.basic-strategy { margin-right: 10px; }
+
+/* =============================================
+   MAIN MENU (BLACKJACK)
+   ============================================= */
+
+#main-count {
+    background-color: #ffd700;
+    color: #ffd700;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#main-count:hover {
+    background-color: #1a1c21 !important;
+    color: #ffd700 !important;
+}
 
 #update-soon-screen {
     height: 650px;
     width: 100%;
 }
 
-
-/* Main Menu Settings */
-
 #main-menu {
     display: flex;
     position: absolute;
     padding-top: 10%;
-    background-color: white;
+    background-color: black;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     width: 100vw;
-}
-
-#background {
-    /* Optional: Add some border or styling */
-    border: 1px solid #fff;
-    border-radius: 5px;
-    padding: 20px;
 }
 
 .menu-buttons {
@@ -506,12 +434,12 @@ th {
     margin: 1rem;
 }
 
-
-#start,
-#settings {
+#start, #settings {
     width: 100px;
     height: 50px;
     margin: 1rem;
+    background-color: #ffd700;
+
 }
 
 #settings-model {
@@ -519,9 +447,7 @@ th {
     display: none;
 }
 
-#settings-model h1 {
-    text-decoration: underline;
-}
+#settings-model h1 { text-decoration: underline; }
 
 .settings-menu {
     background-color: grey;
@@ -535,13 +461,8 @@ th {
     outline: 1px solid black;
 }
 
-#startDeckz {
-    padding-right: 50px;
-}
-
-#startMonz {
-    padding-right: 66px;
-}
+#startDeckz { padding-right: 50px; }
+#startMonz  { padding-right: 66px; }
 
 .closer-box {
     float: right;
@@ -550,31 +471,33 @@ th {
     background-color: grey;
 }
 
-.closer {
-    width: 6px;
-}
+.closer { width: 6px; }
 
-/* This is for my switches */
+/* =============================================
+   TOGGLE SWITCHES
+   ============================================= */
 
-.switchin-container, .switchin-container2 {
+.switchin-container,
+.switchin-container2 {
     display: flex;
     align-items: center;
 }
 
-.switchin-container input, .switchin-container2 input {
-    /* THIS IS USEFUL! DO NOT REMOVE! */
+.switchin-container input,
+.switchin-container2 input {
     -webkit-appearance: none;
     position: relative;
     width: 50px;
     height: 30px;
     border-radius: 25px;
     background-color: #ccc;
-    transition: background .3s;
+    transition: background 0.3s;
     outline: none;
     cursor: pointer;
 }
 
-.switchin-container input::after, .switchin-container2 input::after {
+.switchin-container input::after,
+.switchin-container2 input::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -583,14 +506,16 @@ th {
     border-radius: 50%;
     height: 1.25rem;
     width: 1.25rem;
-    background-color: rgb(255, 255, 255);
-    transition: left .3s;
+    background-color: #fff;
+    transition: left 0.3s;
 }
 
-.switchin-container input:checked, .switchin-container2 input:checked {
+.switchin-container input:checked,
+.switchin-container2 input:checked {
     background-color: rgb(141, 221, 141);
 }
 
-.switchin-container input:checked::after, .switchin-container2 input:checked::after {
+.switchin-container input:checked::after,
+.switchin-container2 input:checked::after {
     left: 70%;
 }

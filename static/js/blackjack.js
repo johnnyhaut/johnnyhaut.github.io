@@ -136,16 +136,16 @@ function flipStrat(){
 
     } else {
         console.log("nah it's not"); 
-        switchStyles("stay","background-color","rgb(141,221,141)"); 
-        switchStyles("stay","color","rgb(141,221,141)"); 
-        switchStyles("hit","color","rgb(141,221,141)"); 
-        switchStyles("hit","background-color","rgb(141,221,141)"); 
-        switchStyles("double","background-color","rgb(141,221,141)"); 
-        switchStyles("double","color","rgb(141,221,141)"); 
-        switchStyles("borderblocks","background-color","rgb(141,221,141)"); 
-        switchStyles("borderblocks","color","rgb(141,221,141)"); 
-        switchStyles("split","background-color","rgb(141,221,141)"); 
-        switchStyles("split","color","rgb(141,221,141)"); 
+        switchStyles("stay","background-color","#1a1c21"); 
+        switchStyles("stay","color","#1a1c21"); 
+        switchStyles("hit","color","#1a1c21"); 
+        switchStyles("hit","background-color","#1a1c21"); 
+        switchStyles("double","background-color","#1a1c21"); 
+        switchStyles("double","color","#1a1c21"); 
+        switchStyles("borderblocks","background-color","#1a1c21"); 
+        switchStyles("borderblocks","color","#1a1c21"); 
+        switchStyles("split","background-color","#1a1c21"); 
+        switchStyles("split","color","#1a1c21"); 
     }  
 }
 
@@ -161,12 +161,12 @@ function flipCount(){
     theButton = document.querySelector('input:checked');
     if(theButton){
         console.log("YE we checked"); 
-        document.getElementById("main-count").style.backgroundColor = "white"; 
-        document.getElementById("main-count").style.color = "black"; 
+        document.getElementById("main-count").style.backgroundColor = "#1a1c21"; 
+        document.getElementById("main-count").style.color = "#ffd700"; 
 
     } else {
-        document.getElementById("main-count").style.backgroundColor = "rgb(141,221,141)"; 
-        document.getElementById("main-count").style.color = "rgb(141,221,141)"; 
+        document.getElementById("main-count").style.backgroundColor = "#ffd700"; 
+        document.getElementById("main-count").style.color = "#ffd700"; 
         console.log("Nosir we are not indead checked"); 
     }
     
