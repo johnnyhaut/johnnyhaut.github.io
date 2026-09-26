@@ -161,12 +161,10 @@ function flipCount(){
     theButton = document.querySelector('input:checked');
     if(theButton){
         console.log("YE we checked"); 
-        document.getElementById("main-count").style.backgroundColor = "#1a1c21"; 
         document.getElementById("main-count").style.color = "#ffd700"; 
 
     } else {
-        document.getElementById("main-count").style.backgroundColor = "#ffd700"; 
-        document.getElementById("main-count").style.color = "#ffd700"; 
+        document.getElementById("main-count").style.color = "#1a1c21"; 
         console.log("Nosir we are not indead checked"); 
     }
     

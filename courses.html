@@ -9,26 +9,46 @@
   <link rel="stylesheet" href="./static/css/screen_size_dependable.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="./static/js/courses.js"></script>
 </head>
+
 
 <body>
 
-  <!-- Creates the Heading Tabs for website -->
-  <div class="headings">
-    <nav>
-      <a href="index.html">
-        <img src="./static/images/logo-website.png" id="logo">
-      </a>
-      <ul>
-        <li><a href="wip-casino.html"> TEXAS HOLD'EM </a></li>
-        <li><a href="wip-casino.html"> BACCARAT </a></li>
-        <li><a href="menu.html"> BLACKJACK </a></li>
+  <nav>
+
+    <!-- Logo for home page -->
+    <a href="index.html">
+      <img src="./static/images/logo-website.png" id="logo">
+    </a>
+
+
+
+    <!-- Mobile overlay menu -->
+    <div class="nav-overlay" id="navOverlay">
+      <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+      <ul class="nav-overlay-links">
+        <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
+        <li><a href="wip-casino.html">BACCARAT</a></li>
+        <li><a href="menu.html">BLACKJACK</a></li>
       </ul>
-    </nav>
-  </div>
+    </div>
+
+
+
+    <!-- Desktop nav links -->
+    <ul class="nav-desktop">
+      <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
+      <li><a href="wip-casino.html">BACCARAT</a></li>
+      <li><a href="menu.html">BLACKJACK</a></li>
+    </ul>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+  </nav>
 
   <!-- Middle Page Section -->
-  <section class="section-container">
+  <section class="section-container" id="courses-contianer">
 
     <!--SPRING 26 COURSES-->
     <div id="rcorners1" class="box">
@@ -43,7 +63,6 @@
     <div id="rcorners1" class="box">
       <div class="courses">
         <h2> Summer 2026 </h2>
-        <h3> ENROLLMENT OPENS - 2/13/26 </h3>
         <h3> CS 1653 - Applied Cryptography & Network Security w/ Khattab (1000-level) </h3>
         <h3> CS 1762 - Web Programming (1000 level) </h3>
 
@@ -54,11 +73,8 @@
     <div id="rcorners1" class="box">
       <div class="courses">
         <h2> Fall 2026 </h2>
-        <h3> CS #### -  </h3>
-        <h3> CS #### -  </h3>
-        <h2> Possible Other Courses </h2>
-        <h3> CS 1666 - Game Design (1000 level) </h3>
-        <h3> CS 1510 - Algorithm Design (1000 level) </h3>
+        <h3> CS 1660 - Intro to Cloud Computing</h3>
+        <h3> SOC 0005 - Societies</h3>
       </div>
     </div>
 

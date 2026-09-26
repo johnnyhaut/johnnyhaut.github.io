@@ -2,7 +2,9 @@
    BASE RESET & GLOBAL
    ============================================= */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -43,6 +45,30 @@ body {
     color: #fff;
 }
 
+#courses-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 5rem 2rem;
+    background-color: #111;
+    color: #fff;
+    position: relative;
+
+    ::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background-color: #ffd700;
+    }
+}
+
 .section-container:nth-of-type(even) {
     background-color: #ffd700;
     color: #111;
@@ -52,19 +78,22 @@ body {
    NAVBAR
    ============================================= */
 
-.headings {
+/* .headings {
     position: sticky;
     top: 0;
     z-index: 100;
     background-color: #1a1c21;
     border-bottom: 2px solid #ffd700;
-}
+} */
 
 nav {
     display: flex;
     align-items: center;
     padding: 0 2rem;
     height: 100px;
+    position: sticky;
+    border-bottom: 2px solid #ffd700;
+    background-color: #1a1c21;
 }
 
 nav a#logo,
@@ -97,8 +126,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #ffd700;
-    color: #111;
+    color: #ffd700;
+}
+
+.nav-desktop {
+    display: flex;
+}
+
+.nav-toggle,
+.nav-overlay {
+    display: none;
+    visibility: hidden;
 }
 
 /* =============================================
@@ -252,31 +290,49 @@ nav ul li a:hover {
    ============================================= */
 
 .courses {
-    padding: 2rem;
-}
-
-.courses h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #e91e63;
-    text-decoration: underline;
-    margin-bottom: 1rem;
-}
-
-.courses h3 {
+    padding: 0;
     text-align: left;
 }
 
+.courses h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1c21;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #1a1c21;
+}
+
+.courses h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+}
+
 #rcorners1 {
-    float: left;
+    position: relative; 
     border-radius: 16px;
-    margin: 3% 2% 5% 3%;
     background: #ffd700;
     color: #1a1c21;
-    width: 20%;
+    flex: 1 1 300px;
+    width: auto;
+    max-width: 340px;
+    height: auto;
+    min-height: 350px;
+    padding: 1.75rem 1.5rem;
+    margin: 6% 5%;
     text-align: center;
-    height: 500px;
-    padding: 1rem;
+    border-top: 6px solid #1a1c21;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+    }
+
 }
 
 /* =============================================
@@ -295,18 +351,39 @@ nav ul li a:hover {
     clear: both;
 }
 
-.secColumn { float: left; width: 33.333%; padding: 10px; }
-#firstColumn { width: 16%; }
-#secondColumn { width: 58.667%; text-align: center; }
-#thirdColumn { width: 25.333%; }
+.secColumn {
+    float: left;
+    width: 33.333%;
+    padding: 10px;
+}
 
-#firstRow { height: 88%; }
+#firstColumn {
+    width: 16%;
+}
+
+#secondColumn {
+    width: 58.667%;
+    text-align: center;
+}
+
+#thirdColumn {
+    width: 25.333%;
+}
+
+#firstRow {
+    height: 84%;
+}
 
 #bottomRow {
     background-color: #1a1c21;
-    padding-left: 10rem;
+    padding-left: 2.5rem;
     border-top: 3px solid #1a1c21;
-    height: 4%;
+    height: 8%;
+
+    .secColumn {
+        margin: auto 0 auto 0; 
+        font-size: 25px;
+    }
 }
 
 .menu {
@@ -314,15 +391,20 @@ nav ul li a:hover {
     align-items: center;
     height: 8%;
     padding-left: 10px;
-    gap: 36%;
+    gap: 85%;
 }
 
 /* =============================================
    BLACKJACK GAME
    ============================================= */
 
-.the-game { display: none; }
-.the-game h2 { text-align: center; }
+.the-game {
+    display: none;
+}
+
+.the-game h2 {
+    text-align: center;
+}
 
 #dealer-cards img,
 #your-cards img,
@@ -332,39 +414,63 @@ nav ul li a:hover {
     margin: 1px;
 }
 
-#split-cards-title { display: none; }
+#split-cards-title {
+    display: none;
+}
 
 #new-menu,
 #placeBet {
     width: 125px;
     height: 50px;
     font-size: 20px;
-    background-color: #ffd700;
+    background-color: #1a1c21;
+    color: #ffd700;
 }
 
-#incBet, #incBet10, #incBet25, #incBet50,
-#decBet, #decBet10, #decBet25, #decBet50,
-#staybut, #hitbut, #splitIt, #double-down {
+#incBet,
+#incBet10,
+#incBet25,
+#incBet50,
+#decBet,
+#decBet10,
+#decBet25,
+#decBet50,
+#staybut,
+#hitbut,
+#splitIt,
+#double-down {
     width: 100px;
     height: 50px;
     font-size: 20px;
     margin: 0.5rem;
-    background-color: #ffd700;
+    background-color: #1a1c21;
+    color: #ffd700;
 }
-#deCount, #inCount {
-    background-color: #ffd700;
-    padding: 3px;
+
+#deCount,
+#inCount {
+    color: #ffd700;
+    background-color: #1a1c21;
+    margin: 20px 4px 20px 0;
+    height: 65px;
+    width: 45%;
+    font-size: 1.25rem;
 }
-#maxBet, #next-hand {
+
+#maxBet,
+#next-hand {
     width: 110px;
     height: 50px;
     font-size: 20px;
     margin: 0.5rem;
-    background-color: #ffd700;
+    background-color: #1a1c21;
+    color: #ffd700;
 
 }
 
-#next-hand { white-space: nowrap; }
+#next-hand {
+    white-space: nowrap;
+}
 
 /* =============================================
    STRATEGY TABLE
@@ -385,24 +491,46 @@ th {
     transition: background-color 0.3s ease-in-out;
 }
 
-#stratTable table { background-color: black; }
+#stratTable table {
+    background-color: black;
+}
 
-#stratTable:hover th         { background-color: inherit; color: black !important; }
-#stratTable:hover .hit       { background-color: yellow !important; }
-#stratTable:hover .stay      { background-color: rgb(141, 221, 141) !important; }
-#stratTable:hover .double    { background-color: red !important; }
-#stratTable:hover .split     { background-color: lightblue !important; }
-#stratTable:hover .borderBlocks { background-color: grey !important; }
+#stratTable:hover th {
+    background-color: inherit;
+    color: black !important;
+}
 
-.basic-strategy { margin-right: 10px; }
+#stratTable:hover .hit {
+    background-color: yellow !important;
+}
+
+#stratTable:hover .stay {
+    background-color: rgb(141, 221, 141) !important;
+}
+
+#stratTable:hover .double {
+    background-color: red !important;
+}
+
+#stratTable:hover .split {
+    background-color: lightblue !important;
+}
+
+#stratTable:hover .borderBlocks {
+    background-color: grey !important;
+}
+
+.basic-strategy {
+    margin-right: 10px;
+}
 
 /* =============================================
    MAIN MENU (BLACKJACK)
    ============================================= */
 
 #main-count {
-    background-color: #ffd700;
-    color: #ffd700;
+    background-color: #1a1c21;
+    color: #1a1c21;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -418,27 +546,27 @@ th {
 
 #main-menu {
     display: flex;
-    position: absolute;
     padding-top: 10%;
     background-color: black;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 60%;
     width: 100vw;
 }
 
 .menu-buttons {
     display: flex;
-    position: relative;
     flex-direction: column;
     margin: 1rem;
 }
 
-#start, #settings {
+#start,
+#settings {
     width: 100px;
     height: 50px;
     margin: 1rem;
-    background-color: #ffd700;
+    background-color: #1a1c21;
+    color: #ffd700;
 
 }
 
@@ -447,7 +575,9 @@ th {
     display: none;
 }
 
-#settings-model h1 { text-decoration: underline; }
+#settings-model h1 {
+    text-decoration: underline;
+}
 
 .settings-menu {
     background-color: grey;
@@ -461,8 +591,13 @@ th {
     outline: 1px solid black;
 }
 
-#startDeckz { padding-right: 50px; }
-#startMonz  { padding-right: 66px; }
+#startDeckz {
+    padding-right: 50px;
+}
+
+#startMonz {
+    padding-right: 66px;
+}
 
 .closer-box {
     float: right;
@@ -471,7 +606,9 @@ th {
     background-color: grey;
 }
 
-.closer { width: 6px; }
+.closer {
+    width: 6px;
+}
 
 /* =============================================
    TOGGLE SWITCHES
@@ -481,6 +618,7 @@ th {
 .switchin-container2 {
     display: flex;
     align-items: center;
+    padding: 10px 0 10px 0;
 }
 
 .switchin-container input,
@@ -494,6 +632,7 @@ th {
     transition: background 0.3s;
     outline: none;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .switchin-container input::after,

@@ -11,27 +11,43 @@
   <link rel="stylesheet" href="./static/css/screen_size_dependable.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="./static/js/index.js"></script>
 
 </head>
 
 <body>
 
-  <!-- Creates the Heading Tabs for website -->
-  <div class="headings">
-    <nav>
-      <!-- Logo for home page -->
-      <a href="index.html">
-        <img src="./static/images/logo-website.png" id="logo">
-      </a>
+  <nav>
 
-      <ul>
+    <!-- Logo for home page -->
+    <a href="index.html">
+      <img src="./static/images/logo-website.png" id="logo">
+    </a>
+
+
+
+    <!-- Mobile overlay menu -->
+    <div class="nav-overlay" id="navOverlay">
+      <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+      <ul class="nav-overlay-links">
         <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
         <li><a href="wip-casino.html">BACCARAT</a></li>
         <li><a href="menu.html">BLACKJACK</a></li>
       </ul>
+    </div>
 
-    </nav>
-  </div>
+
+
+    <!-- Desktop nav links -->
+    <ul class="nav-desktop">
+      <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
+      <li><a href="wip-casino.html">BACCARAT</a></li>
+      <li><a href="menu.html">BLACKJACK</a></li>
+    </ul>
+
+        <!-- Hamburger button (mobile only) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+  </nav>
 
   <!-- Introduces Myself / my Website -->
   <section id="kachow" class="section-container">
@@ -41,17 +57,19 @@
       <img src="./static/images/headshot.png" class="selfie">
       <div class="description">
         <span class="home_name">Hello I'm <i class="name">John Haut</i></span>
-        I built this website to learn about website creation. I plan to use this site for
-        creating games, trying out new designs, and growing my knowledge of how websites work. I 
+        <p> I built this website to learn about website creation. I plan to use this site for
+        creating games, trying out new designs, and growing my knowledge of how websites work. I
         have already had many iterations of this website and plan to have many more over the coming
-        years. As I enjoy casino games I plan on creating a virtual casino all inside this site 
-        using Javascript. Right now the games primarily are designed for laptops and larger screens, 
-        but future updates will get all the games available on any screen desired. 
+        years. As I enjoy casino games I plan on creating a virtual casino all inside this site
+        using Javascript. Right now the games primarily are designed for laptops and larger screens,
+        but future updates will get all the games available on any screen desired. </p>
         <a class="fa-solid fa-file" href="./static/images/Resume-pdf.pdf"> Resume</a>
-
         </span>
       </div>
 
+    </div>
+
+    <div id="projects">
 
     </div>
 
@@ -107,7 +125,7 @@
         <div class="footer-col">
           <h4>follow me</h4>
           <div class="social-links">
-            <a href="images/Resume-pdf.pdf"><i class="fa-solid fa-file"></i></a>
+            <a href="./static/images/Resume-pdf.pdf"><i class="fa-solid fa-file"></i></a>
             <a href="https://github.com/johnnyhaut"><i class="fa-brands fa-github"></i></a>
           </div>
         </div>
