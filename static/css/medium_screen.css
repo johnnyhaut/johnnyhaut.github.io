@@ -645,6 +645,8 @@ th {
 #update-soon-screen {
     height: 650px;
     width: 100%;
+    margin: auto 0 auto 0;
+
 }
 
 #main-menu {
