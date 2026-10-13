@@ -24,20 +24,6 @@
       <img src="./static/images/logo-website.png" id="logo">
     </a>
 
-
-
-    <!-- Mobile overlay menu -->
-    <div class="nav-overlay" id="navOverlay">
-      <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
-      <ul class="nav-overlay-links">
-        <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
-        <li><a href="wip-casino.html">BACCARAT</a></li>
-        <li><a href="menu.html">BLACKJACK</a></li>
-      </ul>
-    </div>
-
-
-
     <!-- Desktop nav links -->
     <ul class="nav-desktop">
       <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
@@ -45,9 +31,19 @@
       <li><a href="menu.html">BLACKJACK</a></li>
     </ul>
 
-        <!-- Hamburger button (mobile only) -->
+    <!-- Hamburger button (mobile only) -->
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
   </nav>
+
+  <!-- Mobile overlay menu -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+    <ul class="nav-overlay-links">
+      <li><a href="wip-casino.html">TEXAS HOLD'EM</a></li>
+      <li><a href="wip-casino.html">BACCARAT</a></li>
+      <li><a href="menu.html">BLACKJACK</a></li>
+    </ul>
+  </div>
 
   <!-- Introduces Myself / my Website -->
   <section id="kachow" class="section-container">
@@ -58,21 +54,92 @@
       <div class="description">
         <span class="home_name">Hello I'm <i class="name">John Haut</i></span>
         <p> I built this website to learn about website creation. I plan to use this site for
-        creating games, trying out new designs, and growing my knowledge of how websites work. I
-        have already had many iterations of this website and plan to have many more over the coming
-        years. As I enjoy casino games I plan on creating a virtual casino all inside this site
-        using Javascript. Right now the games primarily are designed for laptops and larger screens,
-        but future updates will get all the games available on any screen desired. </p>
+          creating games, trying out new designs, and growing my knowledge of how websites work. I
+          have already had many iterations of this website and plan to have many more over the coming
+          years. As I enjoy casino games I plan on creating a virtual casino all inside this site
+          using Javascript. Right now the games primarily are designed for laptops and larger screens,
+          but future updates will get all the games available on any screen desired. </p>
         <a class="fa-solid fa-file" href="./static/images/Resume-pdf.pdf"> Resume</a>
         </span>
       </div>
 
     </div>
 
-    <div id="projects">
+  </section>
 
+
+  <section id="projects" class="section-container">
+    <div class="projects-carousel">
+      <h2 class="projects-heading">Projects</h2>
+      <div class="carousel-track-wrapper">
+        <button class="carousel-arrow carousel-arrow-left" id="prevProject" aria-label="Previous project">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="carousel-viewport">
+          <ul class="carousel-track" id="projectTrack">
+            <li class="project-slide">
+              <img src="./static/images/projects/ppt-img.png" alt="...">
+              <h3>Time Tracking App</h3>
+              <p>This is a mobile app that I created for tracking student worker timecards at the
+                Drop-In Support Desk. This app is connected to a database we used to verify the validity
+                of their hours worked. The desk is still using the app to this day to track student
+                worker hours. </p>
+            </li>
+            <li class="project-slide">
+              <img src="./static/images/projects/hpp-img.png" alt="...">
+              <h3>Poster Printing App</h3>
+              <p>This is used by the Drop-In Support Desk and CopyCat Print Service to track posters
+                being handed out in the Hillman Library. Once a job is printed CopyCat adds the job to
+                the database using this app and once the poster is delivered to the Drop-In Support Desk
+                the staff marks the poster as delievered. Finally, when the end user picks up the poster
+                the job is marked as completed and database is updated.
+              </p>
+            </li>
+            <li class="project-slide">
+              <img src="./static/images/projects/dca-img.png" alt="...">
+              <h3>DateChange App</h3>
+              <p>Used by the Full Time Employees at the Drop-In Support Desk to easily check previous
+                weeks hours worked. This was a GUI of our database that allowed users to easily fetch
+                the total hours worked that week, the average hours per student worker, and what each
+                shift every student worked.
+              </p>
+            </li>
+            <li class="project-slide">
+              <img src="./static/images/projects/rr-img.png" alt="...">
+              <h3>Restraunt Site</h3>
+              <p>This was the Final Project in CS1530 at the University of Pittsburgh. We needed to 
+                create an API that was able to interact with an orders database. User's were able to 
+                publish an order to the database and on the backend the kitchen is able to see all the 
+                orders and clear them as they are made. 
+              </p>
+            </li>
+            <li class="project-slide">
+              <img src="./static/images/projects/PittPrinting-img.png" alt="...">
+              <h3>Printing Outage Site</h3>
+              <p>This was a API created for a Software Engineering course at the University of Pittsburgh.
+                We created a way to track what printers were operational on campus along with the reasons
+                they were offline. Their was a student portal along with an admin portal. Students could
+                see what printers were online and mark printers as offline if one wasn't working. Admin's
+                were able to add printer, delete printers, and mark printers as fixed.
+              </p>
+            </li>
+            <li class="project-slide">
+              <img src="./static/images/projects/HELI-img.png" alt="...">
+              <h3>HELI Lab</h3>
+              <p>This is a site I helped create as part of my Capstone at the University of Pittsburgh.
+                I was the Scrum Master throughout this project, but heavily assisted in creating uniform
+                code and standardizing the appearence across team members and pages. We relocated the HELI
+                Lab page to a new hosting platform, updated information from the old site, and stylized
+                the page in a more up to date fasion. </p>
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-arrow carousel-arrow-right" id="nextProject" aria-label="Next project">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-dots" id="projectDots"></div>
     </div>
-
   </section>
 
   <!-- THIS IS FOOTER CODE -->
